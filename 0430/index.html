@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search key word</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/DBmethod.js"></script>
+
+</head>
+<body>
+    <div class="area">
+        <input type="text" id="key_input">
+        <button id="submit">submit</button>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#key_input").keyup(function (e) { 
+
+                e.preventDefault();
+                var key_word = $("#key_input").val();
+                var search_column;
+                if(isNaN(key_word)) {
+                    search_column = "公司簡稱";
+                }else{
+                    search_column = "公司代號";
+
+                }
+                
+                var get_data_base = new dbtool("search","bluewhal_Basedata","basedata",["公司代號","公司簡稱"]);
+                var content = get_data_base.get_tbody("`"+search_column+"` LIKE '"+key_word+"%' order by `搜尋次數` desc limit 10");
+                console.log(content);
+            });
+        });
+    </script>
+</body>
+</html>

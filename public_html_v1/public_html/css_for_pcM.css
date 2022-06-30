@@ -1,0 +1,6 @@
+/*長寬高*/
+	/*上導覽列*/
+.all-nav          {min-width: 83rem;}
+        /*數據區塊*/
+.all-bodybox      {min-width: 83rem ;}
+.all-databox-item {width: 90%;}

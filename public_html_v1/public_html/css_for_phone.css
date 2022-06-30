@@ -1,0 +1,8 @@
+/*全部的*/
+		/*上導覽列*/
+.all-nav          {min-width: 100%;}
+
+        /*數據區塊*/
+.all-bodybox      {min-width: 100% ;}
+.all-databox-item{width: 100%;}
+.all-tinyLeftNav-with2{display: flex; flex-direction: column;}

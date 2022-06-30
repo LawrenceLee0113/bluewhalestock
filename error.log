@@ -1,0 +1,2569 @@
+[2022-05-11 16:26:35,799] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 115, in google_login
+    return jsonify({"message":userid,"user_name":iss,"user_given_name":user_given_name,"user_family_name":user_family_name})
+NameError: name 'iss' is not defined
+[2022-05-11 16:48:43,651] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 106, in google_login
+    now_database = databases["bluewhal_Client"]
+TypeError: 'databases' object is not subscriptable
+[2022-05-11 16:48:51,245] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 106, in google_login
+    now_database = databases["bluewhal_Client"]
+TypeError: 'databases' object is not subscriptable
+[2022-05-11 16:49:55,884] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 106, in google_login
+    now_database = databases["bluewhal_Client"]
+TypeError: 'databases' object is not subscriptable
+[2022-05-11 17:05:11 +0800] [11555] [ERROR] expected an indented block (main.py, line 114)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 114
+    user_email = idinfo["email"]
+    ^
+IndentationError: expected an indented block
+[2022-05-11 17:17:50,996] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 112, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],1,time.localtime(),time.localtime()])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 22, in insert_data
+    data_names = "\",\"".join(datas)
+TypeError: sequence item 6: expected str instance, int found
+[2022-05-11 17:18:28,813] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 112, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",str(time.localtime()),time.localtime()])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 22, in insert_data
+    data_names = "\",\"".join(datas)
+TypeError: sequence item 8: expected str instance, time.struct_time found
+[2022-05-11 17:19:04,286] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 112, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",str(time.localtime()),str(time.localtime())])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 25, in insert_data
+    self.cursor.execute(sql_str)
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.DataError: 1292 (22007): Incorrect date value: 'time.struct_time(tm_year=2022, tm_mon=5, tm_mday=11, tm_hour=17, tm_min=19, tm_sec=4, tm_wday=2, tm_yday=131, tm_isdst=0)' for column '註冊時間' at row 1
+[2022-05-11 17:21:33,943] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 113, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",str(time.localtime()),str(time.localtime())])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 25, in insert_data
+    self.cursor.execute(sql_str)
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column '註冊時間' at row 1
+[2022-05-11 17:22:10,708] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 112, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",str(time.localtime()),str(time.localtime())])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 25, in insert_data
+    self.cursor.execute(sql_str)
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column '註冊時間' at row 1
+[2022-05-11 17:23:07,519] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 113, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",str(time.localtime()),str(time.localtime())])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 25, in insert_data
+    self.cursor.execute(sql_str)
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column '註冊時間' at row 1
+[2022-05-11 17:27:31,189] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 114, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",nowdate,nowdate])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 22, in insert_data
+    data_names = "\",\"".join(datas)
+TypeError: sequence item 7: expected str instance, datetime.date found
+[2022-05-11 17:30:08,308] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 113, in google_login
+    now_database.insert_data("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",nowdate,nowdate])
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 22, in insert_data
+    data_names = "\",\"".join(datas)
+TypeError: sequence item 7: expected str instance, datetime.date found
+[2022-05-11 17:31:31,937] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 124, in google_login
+    return jsonify({"message":userid,"user_name":values,"user_given_name":user_given_name,"user_family_name":user_family_name})
+  File "/usr/local/lib/python3.8/site-packages/flask/json/__init__.py", line 301, in jsonify
+    f"{dumps(data, indent=indent, separators=separators)}\n",
+  File "/usr/local/lib/python3.8/site-packages/flask/json/__init__.py", line 131, in dumps
+    return _json.dumps(obj, **kwargs)
+  File "/usr/local/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/local/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.8/site-packages/flask/json/__init__.py", line 50, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytearray is not JSON serializable
+[2022-05-11 17:32:24 +0800] [12653] [ERROR] expected an indented block (main.py, line 116)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 116
+    user_email = idinfo["email"]
+    ^
+IndentationError: expected an indented block
+[2022-05-11 17:34:31 +0800] [12691] [ERROR] expected an indented block (main.py, line 120)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 120
+    user_email = idinfo["email"]
+    ^
+IndentationError: expected an indented block
+[2022-05-11 17:35:20 +0800] [12735] [ERROR] expected an indented block (main.py, line 125)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 125
+    except ValueError:
+    ^
+IndentationError: expected an indented block
+[2022-05-11 17:36:14,254] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 129, in google_login
+    return jsonify({"message":userid,"user_name":user_name,"user_given_name":user_given_name,"user_family_name":user_family_name})
+NameError: name 'user_name' is not defined
+[2022-05-11 17:36:17,962] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 129, in google_login
+    return jsonify({"message":userid,"user_name":user_name,"user_given_name":user_given_name,"user_family_name":user_family_name})
+NameError: name 'user_name' is not defined
+[2022-05-11 17:51:18,220] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 113, in google_login
+    now_database.insert_data+(
+TypeError: unsupported operand type(s) for +: 'method' and 'tuple'
+[2022-05-11 17:52:09,486] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 113, in google_login
+    now_database.insert_data+("client_base",
+TypeError: unsupported operand type(s) for +: 'method' and 'tuple'
+[2022-05-11 17:52:50,017] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 113, in google_login
+    now_database.insert_data+("client_base",["登入方法","google_id","姓名","姓","名","電子郵件","登入次數","註冊時間","上次登入時間"],["google",userid,idinfo["name"],idinfo["family_name"],idinfo["given_name"],idinfo["email"],"1",nowdate,nowdate])
+TypeError: unsupported operand type(s) for +: 'method' and 'tuple'
+[2022-05-11 18:51:52,489] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 80, in stock_search
+    base_database_name.get_data("bluewhal_Basedata",["公司代號","出表日期","公司名稱","公司簡稱","住址","網址","成立日期","上市日期","實收資本額","普通股每股面額","市場別","市值","主產業分類","大產業分類","中產業分類","小產業分類","其他產品一","其他產品","總共搜尋次數"],"公司代號 = stock_name")
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 15, in get_data
+    self.cursor.execute(f"SELECT {get_data_str} FROM {table_name} WHERE {condition}")
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'bluewhal_Basedata.bluewhal_Basedata' doesn't exist
+[2022-05-11 18:52:03,036] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 80, in stock_search
+    base_database_name.get_data("bluewhal_Basedata",["公司代號","出表日期","公司名稱","公司簡稱","住址","網址","成立日期","上市日期","實收資本額","普通股每股面額","市場別","市值","主產業分類","大產業分類","中產業分類","小產業分類","其他產品一","其他產品","總共搜尋次數"],"公司代號 = stock_name")
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 15, in get_data
+    self.cursor.execute(f"SELECT {get_data_str} FROM {table_name} WHERE {condition}")
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/cursor.py", line 551, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 490, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 395, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'bluewhal_Basedata.bluewhal_Basedata' doesn't exist
+[2022-05-11 18:53:39,290] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 83, in stock_search
+    values = base_database_name.get_data(
+NameError: name 'base_database_name' is not defined
+[2022-05-11 18:53:40,405] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 83, in stock_search
+    values = base_database_name.get_data(
+NameError: name 'base_database_name' is not defined
+[2022-05-11 18:53:41,059] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 83, in stock_search
+    values = base_database_name.get_data(
+NameError: name 'base_database_name' is not defined
+[2022-05-11 18:53:57,175] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 83, in stock_search
+    values = base_database_name.get_data(
+NameError: name 'base_database_name' is not defined
+[2022-05-12 19:11:01,999] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 127, in google_login
+    values = now_database.get_data("client_base",["*"],f"google_id = {userid}")
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:52,669] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 267, in _send_cmd
+    return self._socket.recv()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 243, in recv_plain
+    raise errors.InterfaceError(errno=2013)
+mysql.connector.errors.InterfaceError: 2013: Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:53,071] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:53,956] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:54,275] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:55,927] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:56,125] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:56,454] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:56,774] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:58,704] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 267, in _send_cmd
+    return self._socket.recv()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 243, in recv_plain
+    raise errors.InterfaceError(errno=2013)
+mysql.connector.errors.InterfaceError: 2013: Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-12 22:07:59,131] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-14 15:09:52,026] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 127, in google_login
+    values = now_database.get_data("client_base",["*"],f"google_id = {userid}")
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-14 15:09:53,204] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-14 15:09:53,358] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 56, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 57, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 61, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-14 15:17:41,705] ERROR in app: Exception on /stock_search [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 83, in stock_search
+    values = base_database_name.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 12, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 10, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-14 15:31:13 +0800] [11909] [ERROR] invalid syntax (main.py, line 43)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 43
+    @app.route('ping_database'):
+                               ^
+SyntaxError: invalid syntax
+[2022-05-14 15:31:21 +0800] [11915] [ERROR] invalid syntax (main.py, line 43)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 43
+    @app.route('/ping_database'):
+                                ^
+SyntaxError: invalid syntax
+[2022-05-14 15:35:07,595] ERROR in app: Exception on /ping_database [GET]
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 46, in ping_database
+    now_DB = databases.database("bluewhal_Basedata")
+UnboundLocalError: local variable 'databases' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 48, in ping_database
+    except connector.Error:
+NameError: name 'connector' is not defined
+[2022-05-14 15:35:11,200] ERROR in app: Exception on /ping_database [GET]
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 46, in ping_database
+    now_DB = databases.database("bluewhal_Basedata")
+UnboundLocalError: local variable 'databases' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 48, in ping_database
+    except connector.Error:
+NameError: name 'connector' is not defined
+[2022-05-14 15:36:13,032] ERROR in app: Exception on /ping_database [GET]
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 46, in ping_database
+    now_DB = databases.database("bluewhal_Basedata")
+UnboundLocalError: local variable 'databases' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 48, in ping_database
+    except connector.Error:
+NameError: name 'connector' is not defined
+[2022-05-14 15:36:16,543] ERROR in app: Exception on /ping_database [GET]
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 46, in ping_database
+    now_DB = databases.database("bluewhal_Basedata")
+UnboundLocalError: local variable 'databases' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 48, in ping_database
+    except connector.Error:
+NameError: name 'connector' is not defined
+[2022-05-14 15:36:57,695] ERROR in app: Exception on /ping_database [GET]
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 46, in ping_database
+    now_DB = databases.database("bluewhal_Basedata")
+UnboundLocalError: local variable 'databases' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 48, in ping_database
+    except connector.Error:
+NameError: name 'connector' is not defined
+[2022-05-15 10:49:31,070] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 267, in _send_cmd
+    return self._socket.recv()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 243, in recv_plain
+    raise errors.InterfaceError(errno=2013)
+mysql.connector.errors.InterfaceError: 2013: Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:49:31,218] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:50:14,021] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:50:14,154] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:06,160] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 267, in _send_cmd
+    return self._socket.recv()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 243, in recv_plain
+    raise errors.InterfaceError(errno=2013)
+mysql.connector.errors.InterfaceError: 2013: Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:06,755] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:08,107] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:08,284] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:08,719] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:09,475] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:09,789] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:09,955] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:10,104] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 10:54:10,258] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 20:02:52,941] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 20:05:19,744] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 20:05:30,009] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-15 20:05:30,116] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-16 08:05:48,563] ERROR in app: Exception on /google_login [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 138, in google_login
+    values = now_database.get_data("client_base",["*"],f"google_id = {userid}")
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-16 08:05:50,179] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 267, in _send_cmd
+    return self._socket.recv()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 243, in recv_plain
+    raise errors.InterfaceError(errno=2013)
+mysql.connector.errors.InterfaceError: 2013: Lost connection to MySQL server during query
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+[2022-05-16 08:05:50,314] ERROR in app: Exception on /get_data_base [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 140, in send_plain
+    self.sock.sendall(packet)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 769, in ping
+    self.cmd_ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 628, in cmd_ping
+    return self._handle_ok(self._send_cmd(ServerCmd.PING))
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 259, in _send_cmd
+    self._socket.send(
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/network.py", line 142, in send_plain
+    raise errors.OperationalError(
+mysql.connector.errors.OperationalError: 2055: Lost connection to MySQL server at 'localhost:3306', system error: 32 Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 68, in get_data_base
+    now_DB.mysql_connection.ping()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 774, in ping
+    raise errors.InterfaceError("Connection to MySQL is"
+mysql.connector.errors.InterfaceError: Connection to MySQL is not available.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 69, in get_data_base
+    except mysql.connector.errors.InterfaceError:
+NameError: name 'mysql' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/bluewhalestock/api_for_bluewhalestock/main.py", line 72, in get_data_base
+    values = now_DB.get_data(
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 11, in get_data
+    self.open_cursor()
+  File "/home/bluewhalestock/api_for_bluewhalestock/DBManager.py", line 9, in open_cursor
+    self.cursor = self.mysql_connection.cursor()
+  File "/usr/local/lib/python3.8/site-packages/mysql/connector/connection.py", line 809, in cursor
+    raise errors.OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.

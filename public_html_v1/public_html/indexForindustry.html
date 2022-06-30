@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- 語言為繁體中文 -->
+<html lang="zh-Hant-TW">
+
+<head>
+<style>
+        .table_container{
+            display: flex;
+        }
+        .right_table{
+            width:500px;
+            overflow: auto;
+        }
+        .right_table tr,.left_table tr{
+            white-space:nowrap
+        }
+    </style>
+<!-- 中文編碼 -->
+<meta charset="utf-8">
+<!-- 引用css -->
+<link rel="stylesheet" href="css_for_industry.css"><!-- 產業 -->
+<link rel="stylesheet" href="css_for_all.css"><!-- 全部 -->
+<!-- 左導覽列的設計 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<!-- 引用js  -->
+<script src="leftnav.js"></script><!-- 左導覽列 -->
+<!-- 引用google icon -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- 引用google 字體 -->
+<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap');</style>
+
+
+
+<!--jq and DBmethod-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="DBmethod.js"></script>
+
+<!--table data import-->
+<!--css-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<!--//jq-->
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+<!--login import-->
+<script src="login.js"></script>
+<link rel="stylesheet" href="login.css">
+<!-- google 登入 import -->
+<meta name="google-signin-client_id" content="1031431154104-h27s49nfml2npup0p0m40iigfcr9qq5g.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="google_login.js"></script>
+
+<!--content box import-->
+<script src="content_box.js"></script>
+
+
+
+
+
+<!-- 偵測螢幕裝置是手機或電腦，載入對應CSS -->
+<script type="text/javascript">
+if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+ 	// 手機或平板裝置
+	document.write("<link rel=\"stylesheet\" href=\"css_for_phone.css\" type=\"text/css\" media=\"screen\"/>"); 
+}
+else {
+	document.write("<link rel=\"stylesheet\" href=\"css_for_pcALL.css\" type=\"text/css\" media=\"screen\"/>"); 
+	// 電腦裝置 1080下  1366下  1680下  1920下  1920上
+	var screenWidth = window.screen.width;
+	// 迷你尺寸電腦 XS
+	if(screenWidth<=1080){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcXS.css\" type=\"text/css\" media=\"screen\"/>");
+	// 小尺寸電腦 S
+	}
+	if(screenWidth > 1080 && screenWidth <= 1366){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcS.css\" type=\"text/css\" media=\"screen\"/>");
+	// 中尺寸電腦 M
+	}
+	if(screenWidth > 1366 && screenWidth <= 1680){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcM.css\" type=\"text/css\" media=\"screen\"/>");
+	// 大尺寸電腦 L
+	}
+	if(screenWidth > 1680 && screenWidth <= 1920){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcL.css\" type=\"text/css\" media=\"screen\"/>");
+	// 特大尺寸電腦 XL
+	}
+	if(screenWidth > 1920){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcXL.css\" type=\"text/css\" media=\"screen\"/>");
+	}
+}
+</script>
+
+<script>
+//小產業分類。 按下左測小選單，要顯示上方細產業選單
+	// 半導體業
+	class_icicX_item = ['矽智財','特殊應用IC','記憶體','記憶體控制IC','電源管理IC','驅動IC','網路通訊IC','影音IC','影像感測IC','觸控IC','微控制器MCU','輸出入介面IC','二極體','功率電晶體','記憶體模組','晶圓','磊晶','網通晶圓','晶圓代工','封測材料','導線架','IC封測',];
+	// 光電產業
+	class_lighX_item = ['背光模組','面板材料','面板','觸控面板模組','顯示器','LED晶粒','LED封裝','LED燈具','光學鏡頭','光碟片','光碟片','攝影機',];
+	// 網路通訊 
+	class_netwX_item = ['光主動元件','光被動元件','無線通訊元件','GPS應用','網路通訊設備','衛星通訊','電信服務',];
+	// 電子零件
+	class_eltsX_item = ['被動元件材料','電阻','電容','電感','石英元件','連接器','連接線材','電源供應器','電子材料','散熱','3C機殼元件',];
+	// 電路板業
+	class_fpcbX_item = ['電路板材料','銅箔基板','IC載板','電路板','電路板加工',];
+	// 電腦產業
+	class_compX_item = ['嵌入式系統','金融終端機','強固型電腦','博弈機台','電腦及伺服器','主機板與顯卡','組裝與代工','電腦週邊3C',];
+	// 電力能源 
+	class_poweX_item = ['太陽能材料','太陽能電池模組','重電','不斷電系統','電池模組','電池材料',];
+	// 資訊服務
+	class_infoX_item = ['韌體設計','軟體開發','金融系統軟體','專案系統軟體','軟體代理','軟硬體整合','網站經營','網購平台',];
+	//電子通路
+	class_elpaX_item = ['3C通路','半導體通路','設備通路','電子材料通路','電子零件通路',];
+	//金融保險
+	class_finaX_item = ['金控','保險','銀行','證券期貨','泛金融',];
+	//生物科技
+	class_biolX_item = ['保健品','藥妝美容','連鎖藥局','生醫材質','測試儀','眼睛醫材','醫院用醫材','基因檢測','醫療服務','生物相似藥','疫苗','原料藥','新藥','學名藥',];
+	//運動產業
+	class_sporX_item = ['自行車製造','自行車零件','球具','健身','鞋子','鞋子材料',];
+	//生活用品
+	class_lifeX_item = ['旅行社','飯店','生理用品','清潔劑','影視','補教','精品','活動製作','娛樂場所','傢俱','衛浴','廚房用品','事務機','殯葬',];
+	//紡織產業
+	class_textX_item = ['纖維','紡紗','織布','成衣',];
+	//食品產業
+	class_foodX_item = ['食品原料','飼料','食用油品','肉品','其他食品','食品容器','餐飲','飲料',];
+	//百貨量販
+	class_depaX_item = ['貿易通路','服飾','超商','購物中心',];
+	//家庭電器
+	class_hoapX_item = ['家庭電器','影音產品','居家安控電子',];
+	//汽車產業
+	class_autoX_item = ['汽車電機系統','汽車系統','汽車塑件','汽車金屬件','汽車鈑金烤漆','其他汽車配件','車燈','車用電子','成車生產','汽車代理銷售',];
+	//設備產業
+	class_equiX_item = ['電子實驗室','半導體設備','PCB設備','光學檢測設備','自動化設備','量測儀','機械加工機','木工工具機','食品設備','其他設備',];
+	//電機機械
+	class_motoX_item = ['縫紉機','手工具機','水泵','傳動元件','冷凍空調','五金',];
+	//鋼鐵產業
+	class_steeX_item = ['鋼材','不鏽鋼','線材盤元','鋼鐵裁剪','鋼筋','鋼鐵製品','螺絲螺帽',];
+	//水泥產業
+	class_cemeX_item = ['水泥',];
+	//建築工程
+	class_archX_item = ['建設公司','綜合營建公司','營造工程','房地產代銷','裝潢與建材','能源工程','廠房工程','機電工程','資產租賃',]	;
+	//傳統產業
+	class_tradX_item = ['廢棄物處理','電線電纜','橡膠','玻璃','造紙','表面處理','印刷出版',];
+	//化學石化
+	class_chemX_item = ['天然氣供應','加油站','塑膠原料','石化原料','合成樹脂','染料塗料','化學品','塑膠加工','農業化學',];
+	//交通運輸
+	class_tranX_item = ['大眾交通','貨櫃航運','散裝航運','貨櫃集散與物流','陸運物流','承攬及報關','飛機維修製造','船維修製造',]
+</script>
+
+</head>
+
+<body>
+	<!-- 上導覽列 -->
+	<div class="all-nav">
+		<div class="all-logo">
+			<a href="index.html" class="all-logo-a">
+				<img src="image/logo.png">
+			</a>
+		</div>
+		<!-- 上導覽列按鈕 -->
+		<div class="all-market-nav">
+			<div class="all-market">
+				<a class="all-market-a" href="index.html">大盤</a>
+				<a class="all-market-a" href="indexForindustry.html">產業</a>
+				<a class="all-market-a" href="indexForcompany.html">個股</a>
+			</div>
+		</div>
+		<!-- 個股搜尋 -->
+		<div class="all-search-nav">
+			<div class="all-search">
+				<input type="text" id="input" class="all-input" placeholder="搜尋股票或產業" onfocus="this.placeholder ='' " onblur="this.placeholder='輸入股票名稱或代碼'">	
+				<!--搜尋列按鈕-->
+				<button id="submitButton" type="submit" class="all-submitButton">
+				<i class="material-icons right">search</i>
+				</button>
+			</div>
+		</div>
+		<!-- 會員相關按鈕 -->
+		<div class="all-member-nav">
+			<div class="all-member">
+				<a class="all-member-a"><h style="white-space: nowrap;">登入</h></a>
+				<a class="all-member-a"><h style="white-space: nowrap;">購買</h></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="all-bodybox">
+		<!--左導覽列-->
+		<div class="all-leftnav">
+			<div class="all-leftnav-in">
+				<!-- 第一個 F() 取消最外側資料畫面隱藏 -->
+				<!-- 第二個 F() 取消最內側資料畫面隱藏 -->
+				<!-- 營收股價 --><div type="button" class="all-leftnav-item slide" id="INrepB" onclick="opencolor('all-BIa','INrepA','INrepB')"><a class='all-BIa' id='INrepA'>營收股價</a><i class="icon-arrow-right"></i></div>
+				<!-- 營收總覽 --><div type="button" class="all-leftnav-item slide" id="INrevB" onclick="opencolor('all-BIa','INrevA','INrevB')"><a class='all-BIa' id='INrevA'>營收總覽</a><i class="icon-arrow-right"></i></div>
+				<!-- 漲跌總覽 --><div type="button" class="all-leftnav-item slide" id="INprsB" onclick="opencolor('all-BIa','INprsA','INprsB')"><a class='all-BIa' id='INprsA'>漲跌總覽</a><i class="icon-arrow-right"></i></div>
+				<!-- 產業指數 --><div type="button" class="all-leftnav-item slide" id="INinfB" onclick="opencolor('all-BIa','INinfA','INinfB')"><a class='all-BIa' id='INinfA'>產業指數</a><i class="icon-arrow-right"></i></div>
+				<!-- 個股股價 --><div type="button" class="all-leftnav-item slide" id="INpriB" onclick="opencolor('all-BIa','INpriA','INpriB')"><a class='all-BIa' id='INpriA'>個股股價</a><i class="icon-arrow-right"></i></div>
+				<!-- 彙總報表 --><div type="button" class="all-leftnav-item slide" id="INallB" onclick="opencolor('all-BIa','INallA','INallB')"><a class='all-BIa' id='INallA'>彙總報表</a><i class="icon-arrow-right"></i></div>
+				<!-- 本益總覽 --><div type="button" class="all-leftnav-item slide" id="INPERB" onclick="opencolor('all-BIa','INPERA','INPERB')"><a class='all-BIa' id='INPERA'>本益總覽</a><i class="icon-arrow-right"></i></div>
+				<!-- 股利總覽 --><div type="button" class="all-leftnav-item slide" id="INdivB" onclick="opencolor('all-BIa','INdivA','INdivB')"><a class='all-BIa' id='INdivA'>股利總覽</a><i class="icon-arrow-right"></i></div>
+				<!-- 產業地圖 --><div type="button" class="all-leftnav-item slide" id="INmapB" onclick="opencolor('all-BIa','INmapA','INmapB')"><a class='all-BIa' id='INmapA'>產業地圖</a><i class="icon-arrow-right"></i></div>
+				<!-- 價值池   --><div type="button" class="all-leftnav-item slide" id="INvalB" onclick="opencolor('all-BIa','INvalA','INvalB')"><a class='all-BIa' id='INvalA'>價值池</a><i class="icon-arrow-right"></i></div>
+				<!-- 產業新聞 --><div type="button" class="all-leftnav-item slide" id="INnewB" onclick="opencolor('all-BIa','INnewA','INnewB')"><a class='all-BIa' id='INnewA'>產業新聞</a><i class="icon-arrow-right"></i></div>			
+			</div>
+		</div>
+
+		<!--數據顯示區塊-->
+		<div class="all-databox">
+			<div class="all-databox-item" id="INrepX">
+				<div class="all-databox-INitem">
+					<!--左小導覽列-->
+					<div class="all-tinyLeftNav-with2">
+						<!-- 左排選單 -->
+						<div class="all-smallLeftNavL">
+							<!-- 半導體業 --><a class="all-bigname" id="RicicPB" onclick="openclass('all-bigclass','all-bigname','RicicPB','RicicPX',class_icicX_item,'cid01')">半導體業</a> 
+							<!-- 光電產業 --><a class="all-bigname" id="RlighPB" onclick="openclass('all-bigclass','all-bigname','RlighPB','RlighPX',class_lighX_item,'cid02')">光電產業</a> 
+							<!-- 網路通訊 --><a class="all-bigname" id="RnetwPB" onclick="openclass('all-bigclass','all-bigname','RnetwPB','RnetwPX',class_netwX_item,'cid03')">網路通訊</a> 
+							<!-- 電子零件 --><a class="all-bigname" id="ReltsPB" onclick="openclass('all-bigclass','all-bigname','ReltsPB','ReltsPX',class_eltsX_item,'cid04')">電子零件</a> 
+							<!-- 電路板業 --><a class="all-bigname" id="RfpcbPB" onclick="openclass('all-bigclass','all-bigname','RfpcbPB','RfpcbPX',class_fpcbX_item,'cid05')">電路板業</a> 
+							<!-- 電腦產業 --><a class="all-bigname" id="RcompPB" onclick="openclass('all-bigclass','all-bigname','RcompPB','RcompPX',class_compX_item,'cid06')">電腦產業</a> 
+							<!-- 電力能源 --><a class="all-bigname" id="RpowePB" onclick="openclass('all-bigclass','all-bigname','RpowePB','RpowePX',class_poweX_item,'cid07')">電力能源</a> 
+							<!-- 資訊服務 --><a class="all-bigname" id="RinfoPB" onclick="openclass('all-bigclass','all-bigname','RinfoPB','RinfoPX',class_infoX_item,'cid08')">資訊服務</a> 
+							<!-- 電子通路 --><a class="all-bigname" id="RelpaPB" onclick="openclass('all-bigclass','all-bigname','RelpaPB','RelpaPX',class_elpaX_item,'cid09')">電子通路</a> 
+							<!-- 金融保險 --><a class="all-bigname" id="RfinaPB" onclick="openclass('all-bigclass','all-bigname','RfinaPB','RfinaPX',class_finaX_item,'cid10')">金融保險</a> 
+							<!-- 生物科技 --><a class="all-bigname" id="RbiolPB" onclick="openclass('all-bigclass','all-bigname','RbiolPB','RbiolPX',class_biolX_item,'cid11')">生物科技</a> 
+							<!-- 運動產業 --><a class="all-bigname" id="RsporPB" onclick="openclass('all-bigclass','all-bigname','RsporPB','RsporPX',class_sporX_item,'cid12')">運動產業</a>
+							<!-- 生活用品 --><a class="all-bigname" id="RlifePB" onclick="openclass('all-bigclass','all-bigname','RlifePB','RlifePX',class_lifeX_item,'cid13')">生活用品</a>
+						</div> 
+						<!-- 右排選單 -->
+						<div class="all-smallLeftNavR">
+							<!-- 紡織產業 --><a class="all-bigname" id="RtextPB" onclick="openclass('all-bigclass','all-bigname','RtextPB','RtextPX',class_textX_item,'cid14')">紡織產業</a> 
+							<!-- 食品產業 --><a class="all-bigname" id="RfoodPB" onclick="openclass('all-bigclass','all-bigname','RfoodPB','RfoodPX',class_foodX_item,'cid15')">食品產業</a> 
+							<!-- 百貨量販 --><a class="all-bigname" id="RdepaPB" onclick="openclass('all-bigclass','all-bigname','RdepaPB','RdepaPX',class_depaX_item,'cid16')">百貨量販</a> 
+							<!-- 家庭電器 --><a class="all-bigname" id="RhoapPB" onclick="openclass('all-bigclass','all-bigname','RhoapPB','RhoapPX',class_hoapX_item,'cid17')">家庭電器</a> 
+							<!-- 汽車產業 --><a class="all-bigname" id="RautoPB" onclick="openclass('all-bigclass','all-bigname','RautoPB','RautoPX',class_autoX_item,'cid18')">汽車產業</a> 
+							<!-- 設備產業 --><a class="all-bigname" id="RequiPB" onclick="openclass('all-bigclass','all-bigname','RequiPB','RequiPX',class_equiX_item,'cid19')">設備產業</a> 
+							<!-- 電機機械 --><a class="all-bigname" id="RmotoPB" onclick="openclass('all-bigclass','all-bigname','RmotoPB','RmotoPX',class_motoX_item,'cid20')">電機機械</a> 
+							<!-- 鋼鐵產業 --><a class="all-bigname" id="RsteePB" onclick="openclass('all-bigclass','all-bigname','RsteePB','RsteePX',class_steeX_item,'cid21')">鋼鐵產業</a> 
+							<!-- 水泥產業 --><a class="all-bigname" id="RcemePB" onclick="openclass('all-bigclass','all-bigname','RcemePB','RcemePX',class_cemeX_item,'cid22')">水泥產業</a> 
+							<!-- 建築工程 --><a class="all-bigname" id="RarchPB" onclick="openclass('all-bigclass','all-bigname','RarchPB','RarchPX',class_archX_item,'cid23')">建築工程</a> 
+							<!-- 其他傳產 --><a class="all-bigname" id="RtradPB" onclick="openclass('all-bigclass','all-bigname','RtradPB','RtradPX',class_tradX_item,'cid24')">其他傳產</a> 
+							<!-- 化學石化 --><a class="all-bigname" id="RchemPB" onclick="openclass('all-bigclass','all-bigname','RchemPB','RchemPX',class_chemX_item,'cid25')">化學石化</a> 
+							<!-- 交通運輸 --><a class="all-bigname" id="RtranPB" onclick="openclass('all-bigclass','all-bigname','RtranPB','RtranPX',class_tranX_item,'cid26')">交通運輸</a>
+						</div>
+					</div>
+					
+					<!--上排選單與資料容器-->
+					<div class="all-showDataBox">
+						<!--上排細產業導覽列-->
+						<div class="all-bigclass" id="RicicPX"></div>
+						<div class="all-bigclass" id="RlighPX"></div>
+						<div class="all-bigclass" id="RnetwPX"></div>
+						<div class="all-bigclass" id="ReltsPX"></div>
+						<div class="all-bigclass" id="RfpcbPX"></div>
+						<div class="all-bigclass" id="RcompPX"></div>
+						<div class="all-bigclass" id="RpowePX"></div>
+						<div class="all-bigclass" id="RinfoPX"></div>
+						<div class="all-bigclass" id="RelpaPX"></div>
+						<div class="all-bigclass" id="RfinaPX"></div>
+						<div class="all-bigclass" id="RbiolPX"></div>
+						<div class="all-bigclass" id="RsporPX"></div>
+						<div class="all-bigclass" id="RlifePX"></div>
+						<div class="all-bigclass" id="RtextPX"></div>
+						<div class="all-bigclass" id="RfoodPX"></div>
+						<div class="all-bigclass" id="RdepaPX"></div>
+						<div class="all-bigclass" id="RhoapPX"></div>
+						<div class="all-bigclass" id="RautoPX"></div>
+						<div class="all-bigclass" id="RequiPX"></div>
+						<div class="all-bigclass" id="RmotoPX"></div>
+						<div class="all-bigclass" id="RsteePX"></div>
+						<div class="all-bigclass" id="RcemePX"></div>
+						<div class="all-bigclass" id="RarchPX"></div>
+						<div class="all-bigclass" id="RtradPX"></div>
+						<div class="all-bigclass" id="RchemPX"></div>
+						<div class="all-bigclass" id="RtranPX"></div>
+						<!--資料容器-->
+						<div class="DataFromClass"id="DFCID"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+</body>
+
+<script type="text/javascript">
+	openclass('all-bigclass','all-bigname','RicicPB','RicicPX',class_icicX_item,'cid01');
+</script>
+<script type="text/javascript" src=page_controller.js></script>
+

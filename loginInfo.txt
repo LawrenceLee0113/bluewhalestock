@@ -1,0 +1,19 @@
+遠振資訊
+https://host.com.tw/index.php
+cpanel
+https://43.254.19.106:2083/?locale=zh_tw
+
+
+run back:
+cd api_for_bluewhalestock
+
+sudo gunicorn -w 1 -b 0.0.0.0:5107 --certfile=server.crt --keyfile=server.key main:app --daemon --log-level error --access-logfile access.log --error-logfile error.log --pid pid.log --reload
+
+//reload fail
+kill -HUP `cat pid.log`
+打密碼~
+
+stop:
+ps -ef | grep gunicorn
+sudo kill -9 00000
+#00000 為你的pid

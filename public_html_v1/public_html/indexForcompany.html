@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- 語言為繁體中文 -->
+<html lang="zh-Hant-TW">
+
+<head>
+<!-- 中文編碼 -->
+<meta charset="utf-8">
+<!-- 引用css -->
+<link rel="stylesheet" href="css_for_company.css"><!-- 個股 -->
+<link rel="stylesheet" href="css_for_all.css"><!-- 全部 -->
+<!-- 左導覽列的設計 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<!-- 引用js  -->
+<script src="leftnav.js"></script><!-- 左導覽列 -->
+<script src="conectAndShowDaPanData.js"></script><!-- 匯入資料 -->
+<!-- 引用google icon -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- 引用google 字體 -->
+<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap');</style>
+
+<!-- 偵測螢幕裝置是手機或電腦，載入對應CSS -->
+<script type="text/javascript">
+if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+ 	// 手機或平板裝置
+	document.write("<link rel=\"stylesheet\" href=\"css_for_phone.css\" type=\"text/css\" media=\"screen\"/>"); 
+}
+else {
+	document.write("<link rel=\"stylesheet\" href=\"css_for_pcALL.css\" type=\"text/css\" media=\"screen\"/>"); 
+	// 電腦裝置 1080下  1366下  1680下  1920下  1920上
+	var screenWidth = window.screen.width;
+	// 迷你尺寸電腦 XS
+	if(screenWidth<=1080){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcXS.css\" type=\"text/css\" media=\"screen\"/>");
+	// 小尺寸電腦 S
+	}
+	if(screenWidth > 1080 && screenWidth <= 1366){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcS.css\" type=\"text/css\" media=\"screen\"/>");
+	// 中尺寸電腦 M
+	}
+	if(screenWidth > 1366 && screenWidth <= 1680){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcM.css\" type=\"text/css\" media=\"screen\"/>");
+	// 大尺寸電腦 L
+	}
+	if(screenWidth > 1680 && screenWidth <= 1920){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcL.css\" type=\"text/css\" media=\"screen\"/>");
+	// 特大尺寸電腦 XL
+	}
+	if(screenWidth > 1920){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcXL.css\" type=\"text/css\" media=\"screen\"/>");
+	}
+}
+</script>
+</head>
+
+<body>
+	<!-- 上導覽列 -->
+	<div class="all-nav">
+		<div class="all-logo">
+			<a href="index.html" class="all-logo-a">
+				<img src="image/logo.png">
+			</a>
+		</div>
+		<!-- 上導覽列按鈕 -->
+		<div class="all-market-nav">
+			<div class="all-market">
+				<a class="all-market-a" href="index.html">大盤</a>
+				<a class="all-market-a" href="indexForindustry.html">產業</a>
+				<a class="all-market-a" href="indexForcompany.html">個股</a>
+			</div>
+		</div>
+		<!-- 個股搜尋 -->
+		<div class="all-search-nav">
+			<div class="all-search">
+				<input type="text" id="input" class="all-input" placeholder="搜尋股票或產業" onfocus="this.placeholder ='' " onblur="this.placeholder='輸入股票名稱或代碼'">	
+				<!--搜尋列按鈕-->
+				<button id="submitButton" type="submit" class="all-submitButton">
+				<i class="material-icons right">search</i>
+				</button>
+			</div>
+		</div>
+		<!-- 會員相關按鈕 -->
+		<div class="all-member-nav">
+			<div class="all-member">
+				<a class="all-member-a"><h style="white-space: nowrap;">登入</h></a>
+				<a class="all-member-a"><h style="white-space: nowrap;">購買</h></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="all-bodybox">
+		<!--左導覽列-->
+		<div class="all-leftnav">
+			<div class="all-leftnav-in">
+				<!-- 第一個 F() 取消最外側資料畫面隱藏 -->
+				<!-- 第二個 F() 取消最內側資料畫面隱藏 -->
+				<!-- 第三個 F() 將數據填上去 -->
+				<!-- 總評報表 --><div type="button" id="STallB"  class="all-leftnav-item slide"><a class='all-BIa' id='STallA' onclick="openbox('all-databox-item','all-BIa','STallA','STallX')">總評報表</a><i class="icon-arrow-right"></i></div>
+				<!-- 產業分析 --><div type="button" id="STindB"  class="all-leftnav-item slide"><a class='all-BIa' id='STindA' onclick="openbox('all-databox-item','all-BIa','STindA','STindX')">產業分析</a><i class="icon-arrow-right"></i></div>
+				<!-- 公開資訊 --><div type="button" id="STopeB"  class="all-leftnav-item slide"><a class='all-BIa' id='STopeA' onclick="openbox('all-databox-item','all-BIa','STopeA','STopeX')">公開資訊</a><i class="icon-arrow-right"></i></div>
+				<!-- 股東報酬 --><div type="button" id="STretB"  class="all-leftnav-item slide"><a class='all-BIa' id='STretA' onclick="openbox('all-databox-item','all-BIa','STretA','STretX')">股東報酬</a><i class="icon-arrow-right"></i></div>
+				<!-- 損益報表 --><div type="button" id="STincB"  class="all-leftnav-item slide"><a class='all-BIa' id='STincA' onclick="openbox('all-databox-item','all-BIa','STincA','STincX')">損益報表</a><i class="icon-arrow-right"></i></div>
+				<!-- 資產負債 --><div type="button" id="STfinB"  class="all-leftnav-item slide"><a class='all-BIa' id='STfinA' onclick="openbox('all-databox-item','all-BIa','STfinA','STfinX')">資產負債</a><i class="icon-arrow-right"></i></div>
+				<!-- 現金流量 --><div type="button" id="STcasB"  class="all-leftnav-item slide"><a class='all-BIa' id='STcasA' onclick="openbox('all-databox-item','all-BIa','STcasA','STcasX')">現金流量</a><i class="icon-arrow-right"></i></div>
+				<!-- 跨表比率 --><div type="button" id="STratB"  class="all-leftnav-item slide"><a class='all-BIa' id='STratA' onclick="openbox('all-databox-item','all-BIa','STratA','STratX')">跨表比率</a><i class="icon-arrow-right"></i></div>
+				<!-- 同業比較 --><div type="button" id="STcomB"  class="all-leftnav-item slide"><a class='all-BIa' id='STcomA' onclick="openbox('all-databox-item','all-BIa','STcomA','STcomX')">同業比較</a><i class="icon-arrow-right"></i></div>
+				<!-- 估值模型 --><div type="button" id="STvalB"  class="all-leftnav-item slide"><a class='all-BIa' id='STvalA' onclick="openbox('all-databox-item','all-BIa','STvalA','STvalX')">估值模型</a><i class="icon-arrow-right"></i></div>
+				
+			</div>
+		</div>
+		<!--數據顯示區塊-->
+		<div class="all-databox">
+			<!--總評報表-->
+			<div class="all-databox-item" id="STallX">1</div>
+			<!--產業分析-->
+			<div class="all-databox-item" id="STindX">2</div>
+			<!--公開資訊-->
+			<div class="all-databox-item" id="STopeX">3</div>
+			<!--股東報酬-->
+			<div class="all-databox-item" id="STretX">4</div>
+			<!--損益報表-->
+			<div class="all-databox-item" id="STincX">5</div>
+			<!--資產負債-->
+			<div class="all-databox-item" id="STfinX">6</div>
+			<!--現金流量-->
+			<div class="all-databox-item" id="STcasX">7</div>
+			<!--跨表比率-->
+			<div class="all-databox-item" id="STratX">8</div>
+			<!--同業比較-->
+			<div class="all-databox-item" id="STcomX">9</div>
+			<!--估值模型-->
+			<div class="all-databox-item" id="STvalX">10</div>
+		</div>
+	</div>
+
+
+
+</body>

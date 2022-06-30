@@ -1,0 +1,16 @@
+/*display*/
+#INrepX   {display: block;}
+#RicicPX  {display: block;}
+
+/*按鈕文字初始顏色*/
+#INrepA {color: black;}
+#RicicPB{color: black;}
+.smallClassa{color: #A1A1A1}
+#cid0100,#cid0200,#cid0300,#cid0400,#cid0500,#cid0600,#cid0700,#cid0800,#cid0900,#cid1000,#cid1100,#cid1200,#cid1300,#cid1400,#cid1500,#cid1600,#cid1700,#cid1800,#cid1900,#cid2000,#cid2100,#cid2200,#cid2300,#cid2400,#cid2500,#cid2600{color: black;}
+.smallClassA {width: 7.5rem;}
+.smallClassA a {display: flex;}
+.smallClassA a {justify-content: center;}
+
+/*上導覽列細產業超出邊界就折返*/
+.all-bigclass {flex-wrap: wrap; }
+.all-bigclass {justify-content: center;}

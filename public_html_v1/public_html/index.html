@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="utf-8"><!-- 中文編碼 -->
+	<title>藍鯨資訊</title>
+
+	<!-- 引用css -->
+	<link href="css_for_dapan.css" rel="stylesheet" /><!-- 大盤 -->
+	<link href="css_for_all.css" rel="stylesheet" /><!-- 全部 -->
+	<!-- 左導覽列的設計 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+	<!-- 引用js  -->
+	<script src="leftnav.js"></script><!-- 左導覽列 -->
+	<script src="conectAndShowDaPanData.js"></script><!-- 匯入資料 -->
+	<!-- 引用google icon -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<!-- 引用google 字體 -->
+	<style type="text/css">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap');
+	
+	</style>
+	<!--jq and DBmethod-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+	<script src="DBmethod.js"></script>
+	
+	<!--table data import-->
+	<!--css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!--//jq-->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    
+    <!--login import-->
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="login.css">
+	<!-- google 登入 import -->
+	<meta name="google-signin-client_id" content="1031431154104-h27s49nfml2npup0p0m40iigfcr9qq5g.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="google_login.js"></script>
+	
+	<!--content box import-->
+    <script src="content_box.js"></script>
+    
+    
+	<!-- RWD 偵測螢幕裝置是手機或電腦，載入對應CSS -->
+	<script type="text/javascript">
+	if( navigator.userAgent.match(/Android/i)
+	 || navigator.userAgent.match(/webOS/i)
+	 || navigator.userAgent.match(/iPhone/i)
+	 || navigator.userAgent.match(/iPad/i)
+	 || navigator.userAgent.match(/iPod/i)
+	 || navigator.userAgent.match(/BlackBerry/i)
+	 || navigator.userAgent.match(/Windows Phone/i)
+	 ){
+	 	// 手機或平板裝置
+		document.write("<link rel=\"stylesheet\" href=\"css_for_phone.css\" type=\"text/css\" media=\"screen\"/>"); 
+	}
+	else {
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcALL.css\" type=\"text/css\" media=\"screen\"/>"); 
+		// 電腦裝置 1080下  1366下  1680下  1920下  1920上
+		var screenWidth = window.screen.width;
+		// 迷你尺寸電腦 XS
+		if(screenWidth<=1080){
+			document.write("<link rel=\"stylesheet\" href=\"css_for_pcXS.css\" type=\"text/css\" media=\"screen\"/>");
+		// 小尺寸電腦 S
+		}
+		if(screenWidth > 1080 && screenWidth <= 1366){
+			document.write("<link rel=\"stylesheet\" href=\"css_for_pcS.css\" type=\"text/css\" media=\"screen\"/>");
+		// 中尺寸電腦 M
+		}
+		if(screenWidth > 1366 && screenWidth <= 1680){
+			document.write("<link rel=\"stylesheet\" href=\"css_for_pcM.css\" type=\"text/css\" media=\"screen\"/>");
+		// 大尺寸電腦 L
+		}
+		if(screenWidth > 1680 && screenWidth <= 1920){
+			document.write("<link rel=\"stylesheet\" href=\"css_for_pcL.css\" type=\"text/css\" media=\"screen\"/>");
+		// 特大尺寸電腦 XL
+		}
+		if(screenWidth > 1920){
+			document.write("<link rel=\"stylesheet\" href=\"css_for_pcXL.css\" type=\"text/css\" media=\"screen\"/>");
+		}
+	}
+	</script>
+
+	<script>
+	// 傳送ID參數給JS需要(漲跌總攬)
+	IDfallX='fallX';IDicicX='icicX';IDlighX='lighX';IDnetwX='netwX';IDeltsX='eltsX';IDfpcbX='fpcbX';IDcompX='compX';IDpoweX='poweX';IDinfoX='infoX';IDelpaX='elpaX';IDfinaX='finaX';IDbiolX='biolX';IDsporX='sporX';IDlifeX='lifeX';IDtextX='textX';IDfoodX='foodX';IDdepaX='depaX';IDhoapX='hoapX';IDautoX='autoX';IDequiX='equiX';IDmotoX='motoX';IDsteeX='steeX';IDcemeX='cemeX';IDarchX='archX';IDtradX='tradX';IDchemX='chemX';IDtranX='tranX';
+	// 傳送ID參數給JS需要(營收總攬)
+	IDfallRX='fallRX';IDicicRX='icicRX';IDlighRX='lighRX';IDnetwRX='netwRX';IDeltsRX='eltsRX';IDfpcbRX='fpcbRX';IDcompRX='compRX';IDpoweRX='poweRX';IDinfoRX='infoRX';IDelpaRX='elpaRX';IDfinaRX='finaRX';IDbiolRX='biolRX';IDsporRX='sporRX';IDlifeRX='lifeRX';IDtextRX='textRX';IDfoodRX='foodRX';IDdepaRX='depaRX';IDhoapRX='hoapRX';IDautoRX='autoRX';IDequiRX='equiRX';IDmotoRX='motoRX';IDsteeRX='steeRX';IDcemeRX='cemeRX';IDarchRX='archRX';IDtradRX='tradRX';IDchemRX='chemRX';IDtranRX='tranRX';
+	// 傳送ID參數給JS需要(股利總攬)
+	IDfallDX='fallDX';IDicicDX='icicDX';IDlighDX='lighDX';IDnetwDX='netwDX';IDeltsDX='eltsDX';IDfpcbDX='fpcbDX';IDcompDX='compDX';IDpoweDX='poweDX';IDinfoDX='infoDX';IDelpaDX='elpaDX';IDfinaDX='finaDX';IDbiolDX='biolDX';IDsporDX='sporDX';IDlifeDX='lifeDX';IDtextDX='textDX';IDfoodDX='foodDX';IDdepaDX='depaDX';IDhoapDX='hoapDX';IDautoDX='autoDX';IDequiDX='equiDX';IDmotoDX='motoDX';IDsteeDX='steeDX';IDcemeDX='cemeDX';IDarchDX='archDX';IDtradDX='tradDX';IDchemDX='chemDX';IDtranDX='tranDX';
+	// 傳送ID參數給JS需要(本益總攬)
+	IDfallPX='fallPX';IDicicPX='icicPX';IDlighPX='lighPX';IDnetwPX='netwPX';IDeltsPX='eltsPX';IDfpcbPX='fpcbPX';IDcompPX='compPX';IDpowePX='powePX';IDinfoPX='infoPX';IDelpaPX='elpaPX';IDfinaPX='finaPX';IDbiolPX='biolPX';IDsporPX='sporPX';IDlifePX='lifePX';IDtextPX='textPX';IDfoodPX='foodPX';IDdepaPX='depaPX';IDhoapPX='hoapPX';IDautoPX='autoPX';IDequiPX='equiPX';IDmotoPX='motoPX';IDsteePX='steePX';IDcemePX='cemePX';IDarchPX='archPX';IDtradPX='tradPX';IDchemPX='chemPX';IDtranPX='tranPX';
+
+	//漲跌、營收、本益比率總攬的標題
+	class_price_name = ["公司","代號","產品","收盤","漲跌幅","週漲跌","月漲跌","季漲跌","年漲跌"];
+	class_revenue_name = ["公司","代號","產品","最新營收","年增率","近3月年增"];
+	class_divident_name = ["公司","產品","股利","殖利率","5年平均股利","5年平均殖利率"];
+	class_PER_name = ["公司","產品","年度本益比","近四季本益比","3年本益比中位數","5年本益比中位數"];
+
+	//小產業分類
+	// 半導體業
+	class_icicX_item = ['矽智財','特殊應用IC','記憶體','記憶體控制IC','電源管理IC','驅動IC','網路通訊IC','影音IC','影像感測IC','觸控IC','微控制器MCU','輸出入介面IC','二極體','功率電晶體','記憶體模組','晶圓','磊晶','網通晶圓','晶圓代工','封測材料','導線架','IC封測',];
+	// 光電產業
+	class_lighX_item = ['背光模組','面板材料','面板','觸控面板模組','顯示器','LED晶粒','LED封裝','LED燈具','光學鏡頭','光碟片','光碟片','攝影機',];
+	// 網路通訊 
+	class_netwX_item = ['光主動元件','光被動元件','無線通訊元件','GPS應用','網路通訊設備','衛星通訊','電信服務',];
+	// 電子零件
+	class_eltsX_item = ['被動元件材料','電阻','電容','電感','石英元件','連接器','連接線材','電源供應器','電子材料','散熱','3C機殼元件',];
+	// 電路板業
+	class_fpcbX_item = ['電路板材料','銅箔基板','IC載板','電路板','電路板加工',];
+	// 電腦產業
+	class_compX_item = ['嵌入式系統','金融終端機','強固型電腦','博弈機台','電腦及伺服器','主機板與顯卡','組裝與代工','電腦週邊3C',];
+	// 電力能源 
+	class_poweX_item = ['太陽能材料','太陽能電池模組','重電','不斷電系統','電池模組','電池材料',];
+	// 資訊服務
+	class_infoX_item = ['韌體設計','軟體開發','金融系統軟體','專案系統軟體','軟體代理','軟硬體整合','網站經營','網購平台',];
+	//電子通路
+	class_elpaX_item = ['3C通路','半導體通路','設備通路','電子材料通路','電子零件通路',];
+	//金融保險
+	class_finaX_item = ['金控','保險','銀行','證券期貨','泛金融',];
+	//生物科技
+	class_biolX_item = ['保健品','藥妝美容','連鎖藥局','生醫材質','測試儀','眼睛醫材','醫院用醫材','基因檢測','醫療服務','生物相似藥','疫苗','原料藥','新藥','學名藥',];
+	//運動產業
+	class_sporX_item = ['自行車製造','自行車零件','球具','健身','鞋子','鞋子材料',];
+	//生活用品
+	class_lifeX_item = ['旅行社','飯店','生理用品','清潔劑','影視','補教','精品','活動製作','娛樂場所','傢俱','衛浴','廚房用品','事務機','殯葬',];
+	//紡織產業
+	class_textX_item = ['纖維','紡紗','織布','成衣',];
+	//食品產業
+	class_foodX_item = ['食品原料','飼料','食用油品','肉品','其他食品','食品容器','餐飲','飲料',];
+	//百貨量販
+	class_depaX_item = ['貿易通路','服飾','超商','購物中心',];
+	//家庭電器
+	class_hoapX_item = ['家庭電器','影音產品','居家安控電子',];
+	//汽車產業
+	class_autoX_item = ['汽車電機系統','汽車系統','汽車塑件','汽車金屬件','汽車鈑金烤漆','其他汽車配件','車燈','車用電子','成車生產','汽車代理銷售',];
+	//設備產業
+	class_equiX_item = ['電子實驗室','半導體設備','PCB設備','光學檢測設備','自動化設備','量測儀','機械加工機','木工工具機','食品設備','其他設備',];
+	//電機機械
+	class_motoX_item = ['縫紉機','手工具機','水泵','傳動元件','冷凍空調','五金',];
+	//鋼鐵產業
+	class_steeX_item = ['鋼材','不鏽鋼','線材盤元','鋼鐵裁剪','鋼筋','鋼鐵製品','螺絲螺帽',];
+	//水泥產業
+	class_cemeX_item = ['水泥',];
+	//建築工程
+	class_archX_item = ['建設公司','綜合營建公司','營造工程','房地產代銷','裝潢與建材','能源工程','廠房工程','機電工程','資產租賃',]	;
+	//傳統產業
+	class_tradX_item = ['廢棄物處理','電線電纜','橡膠','玻璃','造紙','表面處理','印刷出版',];
+	//化學石化
+	class_chemX_item = ['天然氣供應','加油站','塑膠原料','石化原料','合成樹脂','染料塗料','化學品','塑膠加工','農業化學',];
+	//交通運輸
+	class_tranX_item = ['大眾交通','貨櫃航運','散裝航運','貨櫃集散與物流','陸運物流','承攬及報關','飛機維修製造','船維修製造',]
+	</script>
+	
+	<script src="search_stock.js"></script>	
+</head>
+
+<body>
+<!-- 搜尋股票資料列表 -->
+<!-- 由javascript新增資料 -->
+<p><datalist id="dlSTOCK_ID_NM"></datalist></p>
+<!-- 上導覽列 -->
+<div class="container" style="display:none">
+    <div class="login_area">
+        <button class="cancel_btn">
+            <img src="image/x.png" alt="">
+        </button>
+        <div class="page_selector">
+            <!-- <button class="login_page_btn">a</button>
+            <button class="sign_up_btn">a</button> -->
+            <h1>--登入--</h1>
+        </div>
+        <div class="login_btns" >
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+    </div>
+</div>
+<div class="all-nav">
+	<div class="all-logo"><a class="all-logo-a" href="index.html"><img src="image/logo.png" /> </a></div>
+
+	<!-- 上導覽列按鈕 -->
+	<div class="all-market-nav">
+		<div class="all-market">
+			<a class="all-market-a" href="index.html">大盤</a> 
+			<a class="all-market-a" href="indexForindustry.html">產業</a> 
+			<a class="all-market-a" href="indexForcompany.html">個股</a>
+		</div>
+	</div>
+	
+	<!-- 個股搜尋 -->
+	<div class="all-search-nav">
+		<div class="all-search"><input class="all-input" id="input" list="dlSTOCK_ID_NM" onblur="this.placeholder='搜尋股票或產業'" onfocus="this.placeholder ='' " placeholder="搜尋股票或產業" type="text" /> 
+			<!--搜尋列按鈕-->
+			<button class="all-submitButton" id="submitButton" type="submit"><i class="material-icons right">search</i></button>
+		</div>
+	</div>
+	
+	<!-- 會員相關按鈕 -->
+	<div class="all-member-nav">
+		<div class="all-member"><a class="all-member-a" id="login_btn"><h style="white-space: nowrap;">登入</h></a> <a class="all-member-a"><h style="white-space: nowrap;">購買</h></a></div>
+	</div>
+</div>
+<!--上導覽列結束-->
+
+<div class="all-bodybox">
+	<!--左導覽列-->
+	<div class="all-leftnav">
+		<div class="all-leftnav-in">
+			<!-- 第一個 F() 取消最外側資料畫面隱藏 -->
+			<!-- 第二個 F() 取消最內側資料畫面隱藏 -->			
+			<!-- 大盤指標 --><div type="button" class="all-leftnav-item slide" id="BnorB"><a class="all-BIa" id="BInorA" onclick="openbox('all-databox-item','all-BIa','BInorA','Dapanbox_norA');  openbox('all-bigclass','all-bigname','NallrB','NallrX');  ">大盤指標</a><i class="icon-arrow-right"></i></div>
+			<!-- 產業漲跌 --><div type="button" class="all-leftnav-item slide" id="BindB"><a class="all-BIa" id="BIinpA" onclick="openbox('all-databox-item','all-BIa','BIinpA','Dapanbox_ingA');  ">產業漲跌</a><i class="icon-arrow-right"></i></div>
+			<!-- 國際股市 --><div type="button" class="all-leftnav-item slide" id="BindB"><a class="all-BIa" id="BIindA" onclick="openbox('all-databox-item','all-BIa','BIindA','Dapanbox_indA')   ">國際股市</a><i class="icon-arrow-right"></i></div>		
+			<!-- 權值個股 --><div type="button" class="all-leftnav-item slide" id="BheaB"><a class="all-BIa" id="BIheaA" onclick="openbox('all-databox-item','all-BIa','BIheaA','Dapanbox_heaA');  openbox('all-bigclass','all-bigname','b10B','b10X');      ">權值個股</a><i class="icon-arrow-right"></i></div>
+			<!-- 市場資訊 --><div type="button" class="all-leftnav-item slide" id="BinfB"><a class="all-BIa" id="BIinfA" onclick="openbox('all-databox-item','all-BIa','BIinfA','Dapanbox_infA');  openbox('all-bigclass','all-bigname','applB','applX');    ">市場資訊</a><i class="icon-arrow-right"></i></div>
+			<!-- 經濟指標 --><div type="button" class="all-leftnav-item slide" id="BecoB"><a class="all-BIa" id="BIecoA" onclick="openbox('all-databox-item','all-BIa','BIecoA','Dapanbox_ecoA');  openbox('all-bigclass','all-bigname','gdpgB','gdpgX');    ">經濟指標</a><i class="icon-arrow-right"></i></div>
+			<!-- 貿易數據 --><div type="button" class="all-leftnav-item slide" id="BtraB"><a class="all-BIa" id="BItraA" onclick="openbox('all-databox-item','all-BIa','BItraA','Dapanbox_traA');  ">貿易數據</a><i class="icon-arrow-right"></i></div>
+			<!-- 商品行情 --><div type="button" class="all-leftnav-item slide" id="BoilB"><a class="all-BIa" id="BIoilA" onclick="openbox('all-databox-item','all-BIa','BIoilA','Dapanbox_oilA');  ">商品行情</a><i class="icon-arrow-right"></i></div>
+			<!-- 個股排行 --><div type="button" class="all-leftnav-item slide" id="BranB"><a class="all-BIa" id="BIranA" onclick="openbox('all-databox-item','all-BIa','BIranA','Dapanbox_ranA');  openbox('all-bigclass','all-bigname','regrB','regrX');    ">個股排行</a><i class="icon-arrow-right"></i></div>		
+		</div>
+	</div>
+	
+	<!--數據顯示區塊-->
+	<div class="all-databox">
+		
+		<!--大盤指標-->
+		<div class="all-databox-item" id="Dapanbox_norA">
+			<div class="all-databox-INitem">
+				<!--大盤指標選單-->
+				<div class="all-tinyLeftNav">
+					<a class="all-bigname" id="NallrB" onclick="openbox('all-bigclass','all-bigname','NallrB','NallrX')">大盤營收</a>
+					<a class="all-bigname" id="NrevgB" onclick="openbox('all-bigclass','all-bigname','NrevgB','NrevgX')">營收年增</a>
+					<a class="all-bigname" id="NvaluB" onclick="openbox('all-bigclass','all-bigname','NvaluB','NvaluX')">大盤評價</a>
+					<a class="all-bigname" id="NstopB" onclick="openbox('all-bigclass','all-bigname','NstopB','NstopX')">漲跌停數</a>
+				</div>
+				<!--大盤指標容器-->
+				<div class="all-showDataBox">
+					<div class="all-bigclass" id="NallrX">1</div>
+					<div class="all-bigclass" id="NrevgX">2</div>
+					<div class="all-bigclass" id="NvaluX">3</div>
+					<div class="all-bigclass" id="NstopX">4</div>
+				</div>
+			</div>
+		</div>
+		<!--產業漲跌-->
+		<div class="all-databox-item" id="Dapanbox_ingA">產業漲跌</div>
+		<!--國際股市-->
+		<div class="all-databox-item" id="Dapanbox_indA"></div>
+		<!--權值個股-->
+		<div class="all-databox-item" id="Dapanbox_heaA">
+			<div class="all-databox-INitem">
+			<!--權值個股選單-->
+			<div class="all-tinyLeftNav">
+				<a class="all-bigname" id="b10B" onclick="openbox('all-bigclass','all-bigname','b10B','b10X')">市值Top10</a> 
+				<a class="all-bigname" id="b20B" onclick="openbox('all-bigclass','all-bigname','b20B','b20X')">市值Top20</a> 
+				<a class="all-bigname" id="b30B" onclick="openbox('all-bigclass','all-bigname','b30B','b30X')">市值Top30</a> 
+				<a class="all-bigname" id="b40B" onclick="openbox('all-bigclass','all-bigname','b40B','b40X')">市值Top40</a> 
+				<a class="all-bigname" id="b50B" onclick="openbox('all-bigclass','all-bigname','b50B','b50X')">市值Top50</a>
+			</div>
+			<!--權值個股表-->
+			<div class="all-showDataBox">
+				<div class="all-bigclass" id="b10X">1</div>
+				<div class="all-bigclass" id="b20X">2</div>
+				<div class="all-bigclass" id="b30X">3</div>
+				<div class="all-bigclass" id="b40X">4</div>
+				<div class="all-bigclass" id="b50X">5</div>
+			</div>
+			</div>
+		</div>
+		<!--市場資訊-->
+		<div class="all-databox-item" id="Dapanbox_infA">
+			<div class="all-databox-INitem">
+			<!--資訊類別選單-->
+			<div class="all-tinyLeftNav">
+				<a class="all-bigname" id="applB" onclick="openbox('all-bigclass','all-bigname','applB','applX')">新股上市上櫃</a> 
+				<a class="all-bigname" id="direB" onclick="openbox('all-bigclass','all-bigname','direB','direX')">董監持股轉讓</a> 
+				<a class="all-bigname" id="fakeB" onclick="openbox('all-bigclass','all-bigname','fakeB','fakeX')">異常推介個股</a> 
+				<a class="all-bigname" id="noteB" onclick="openbox('all-bigclass','all-bigname','noteB','noteX')">注意處置股票</a> 
+				<a class="all-bigname" id="timeB" onclick="openbox('all-bigclass','all-bigname','timeB','timeX')">分盤交易股票</a> 
+				<a class="all-bigname" id="diviB" onclick="openbox('all-bigclass','all-bigname','diviB','diviX')">除權除息預告</a> 
+				<a class="all-bigname" id="impoB" onclick="openbox('all-bigclass','all-bigname','impoB','impoX')">今日重大訊息</a> 
+				<a class="all-bigname" id="surpB" onclick="openbox('all-bigclass','all-bigname','surpB','surpX')">公司自結盈餘</a>
+			</div>
+			<!--資訊類別表-->
+			<div class="all-showDataBox">
+				<!-- 新股上市類股 -->
+				<div class="all-bigclass" id="applX">
+					<!--<h1 id="applX_sii_table_title" style="text-align:center"></h1>-->
+					<!--<table id="applX_sii_table">-->
+					<!--	<thead>-->
+					<!--	</thead>-->
+					<!--	<tbody>-->
+					<!--	</tbody>-->
+					<!--</table>-->
+					<!--<script>-->
+					    
+					<!--</script>-->
+
+					<!--<h1 id="applX_otc_table_title" style="text-align:center"></h1>-->
+					<!--<table id="applX_otc_table">-->
+					<!--	<thead>-->
+					<!--	</thead>-->
+					<!--	<tbody>-->
+					<!--	</tbody>-->
+					<!--</table>-->
+				</div>
+
+				<div class="all-bigclass" id="direX"></div>
+				<div class="all-bigclass" id="fakeX">2</div>
+				<div class="all-bigclass" id="noteX">3</div>
+				<div class="all-bigclass" id="timeX">4</div>
+				<div class="all-bigclass" id="diviX">5</div>
+				<div class="all-bigclass" id="impoX">6</div>
+				<div class="all-bigclass" id="surpX">7</div>
+			</div>
+			</div>
+		</div>
+		<!--經濟指標-->
+		<div class="all-databox-item" id="Dapanbox_ecoA">
+			<div class="all-databox-INitem">
+			<!--經濟指標選單-->
+			<div class="all-tinyLeftNav">
+				<a class="all-bigname" id="gdpgB" onclick="openbox('all-bigclass','all-bigname','gdpgB','gdpgX')">經濟成長</a> 
+				<a class="all-bigname" id="PMIiB" onclick="openbox('all-bigclass','all-bigname','PMIiB','PMIiX')">採購經理人</a> 
+				<a class="all-bigname" id="wageB" onclick="openbox('all-bigclass','all-bigname','wageB','wageX')">國民所得</a> 
+				<a class="all-bigname" id="cpriB" onclick="openbox('all-bigclass','all-bigname','cpriB','cpriX')">物價指數</a> 
+				<a class="all-bigname" id="moneB" onclick="openbox('all-bigclass','all-bigname','moneB','moneX')">貨幣供給</a> 
+				<a class="all-bigname" id="exchB" onclick="openbox('all-bigclass','all-bigname','exchB','exchX')">國際匯率</a>
+			</div>
+			<!--經濟指標表-->
+			<div class="all-showDataBox">
+				<div class="all-bigclass" id="gdpgX">1</div>
+				<div class="all-bigclass" id="PMIiX">2</div>
+				<div class="all-bigclass" id="wageX">2.5</div>
+				<div class="all-bigclass" id="cpriX">3</div>
+				<div class="all-bigclass" id="moneX">4</div>
+				<div class="all-bigclass" id="exchX">5</div>
+			</div>
+			</div>
+		</div>
+		<!--貿易數據-->
+		<div class="all-databox-item" id="Dapanbox_traA">貿易數據</div>
+		<!--商品行情-->
+		<div class="all-databox-item" id="Dapanbox_oilA">商品行情</div>
+		<!--個股排行-->
+		<div class="all-databox-item" id="Dapanbox_ranA">
+			<div class="all-databox-INitem">
+			<!--個股排行選單-->
+			<div class="all-tinyLeftNav">
+				<a class="all-bigname" id="regrB" onclick="openbox('all-bigclass','all-bigname','regrB','regrX')">營收成長</a> 
+				<a class="all-bigname" id="foreB" onclick="openbox('all-bigclass','all-bigname','foreB','foreX')">外資買賣</a> 
+				<a class="all-bigname" id="trusB" onclick="openbox('all-bigclass','all-bigname','trusB','trusX')">投信買賣</a> 
+				<a class="all-bigname" id="gainB" onclick="openbox('all-bigclass','all-bigname','gainB','gainX')">股價漲幅</a>
+				<a class="all-bigname" id="voluB" onclick="openbox('all-bigclass','all-bigname','voluB','voluX')">成交量</a> 
+				<a class="all-bigname" id="yielB" onclick="openbox('all-bigclass','all-bigname','yielB','yielX')">殖利率</a>
+			</div>
+			<!--個股排行表-->
+			<div class="all-showDataBox">
+				<div class="all-bigclass" id="regrX">1</div>
+				<div class="all-bigclass" id="foreX">2</div>
+				<div class="all-bigclass" id="trusX">3</div>
+				<div class="all-bigclass" id="gainX">4</div>
+				<div class="all-bigclass" id="voluX">5</div>
+				<div class="all-bigclass" id="yielX">6</div>
+			</div>
+			</div>
+		</div>
+	
+	</div>
+</div>
+</body>
+
+<!-- 首頁要展示的資料 --><script type="text/javascript">
+//大盤指數標題
+index_name = ['加權指數','上櫃指數','道瓊指數','標普500','那斯達克','費城半導體'];
+//大盤指數資訊
+index_price_name = ['開盤價','最高價','最低價','收盤價','漲跌','漲跌幅'];
+index_MA_name = ['5日線','10日線','20日線','60日線','240日線'];
+index_volatility_name = ['1日','1週','1月','1季','半年','1年'];
+//月份列表
+month = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+
+
+//大盤指數，股價圖表生成
+var html_for_Dapanbox_index = ''
+for (var i = 0; i < index_name.length; i++) { 
+    html_for_Dapanbox_index += '<div class="indexBox"><div class="indexname"><h class="indextitle">'+index_name[i]+'</h><h class="indexdetail">收盤開高低收</h></div><div class="indexplot"><div class="indexChart"></div><div class="indexData"><table><thead><tr><th>股價資料</th></tr></thead><tbody>';
+    //股價資料表格生成
+    for (var priceN = 0; priceN < index_price_name.length; priceN++) {
+    	html_for_Dapanbox_index += '<tr><td>'+index_price_name[priceN]+'</td></tr>'
+    }
+    html_for_Dapanbox_index += '</tbody></table><table><thead><tr><th>均線資料</th></tr></thead><tbody>';
+    //均線資料表格生成
+    for (var maN = 0; maN < index_MA_name.length; maN++) {
+    	html_for_Dapanbox_index += '<tr><td>'+index_MA_name[maN]+'</td></tr>'
+    }
+    html_for_Dapanbox_index += '</tbody></table><table><thead><tr><th>漲跌幅度</th></tr></thead><tbody>';
+    //漲跌幅度表格生成
+    for (var volN = 0; volN < index_volatility_name.length; volN++) {
+    	html_for_Dapanbox_index += '<tr><td>'+index_volatility_name[volN]+'</td></tr>'
+    }
+    html_for_Dapanbox_index += '</tbody></table></div></div>';
+
+    //只有台股要顯示總體月營收資訊
+    if(index_name[i]=='加權指數' || index_name[i]=='上櫃指數'){
+    	index_revenue_type = ['全台上市公司總營收','全台上櫃公司總營收'];
+    	html_for_Dapanbox_index += '<div class="indexRevenuebox"><div class="indexMRevenue"><table><thead><tr><th colspan="14">'+index_revenue_type[i]+'</th></tr></thead><tbody><tr><td align="center" width="16%" colspan="2">年度</td>'
+    	//放入1-12月
+    	for (var iforM = 0; iforM < month.length; iforM++){
+    		html_for_Dapanbox_index += '<td align="center" width="7%">'+month[iforM]+'</td>'
+    	}  	
+    	html_for_Dapanbox_index += '</tr></tbody> </table></div><div class="indexYRevenue"><table><thead><tr><th>上市公司</th></tr></thead><tbody><tr><td align="center">年度累積</td></tr></tbody></table></div></div>'
+    }
+    //紅色外框，國內外股市都需要
+    html_for_Dapanbox_index += '</div>';
+}
+document.getElementById( 'Dapanbox_indA' ).innerHTML = html_for_Dapanbox_index
+</script></html>

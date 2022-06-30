@@ -1,0 +1,60 @@
+/*測試用容器外誆顏色*/
+.indexBox         {border: 6px;border-style: solid;border-color: red;}
+.indexname        {border: 6px;border-style: solid;border-color: green;}
+.indexplot        {border: 6px;border-style: solid;border-color: pink;}
+.indexChart       {border: 6px;border-style: solid;border-color: green;}
+.indexData        {border: 6px;border-style: solid;border-color: blue;}
+.indexRevenuebox  {border: 6px;border-style: solid;border-color: pink;}
+.indexMRevenue    {border: 6px;border-style: solid;border-color: green;}
+.indexYRevenue    {border: 6px;border-style: solid;border-color: blue;}
+
+/*長寬高*/
+.indexname        {min-height: 2rem;}
+.indexplot        {min-height: 30rem;}
+
+
+
+
+
+
+/*只有在大螢幕讓市場資訊6個字都放得下*/
+.indexChart       {width: 85%;}
+.indexData        {width: 15%;}
+.indexMRevenue    {width: 85%;}
+.indexYRevenue    {width: 15%;}
+
+
+
+/*display*/
+#Dapanbox_norA    {display: block;}
+#NallrX           {display: block;}
+.all-databox-item {display: none;}
+.indexplot        {display: flex;}
+.indexRevenuebox  {display: flex;}
+.indexMRevenue    {display: flex;}
+.indexYRevenue    {display: flex;}
+
+/*margin*/
+.indexBox         {margin-bottom: 2rem;}
+.material-icons   {margin-top: auto; margin-bottom: auto;}
+
+
+/*padding*/
+.indextitle       {padding-left: 3rem;}
+.indexdetail      {padding-left: 3rem;}
+
+/*水平置中*/
+.indexMRevenue    {justify-content: center;}
+.indexYRevenue    {justify-content: center;}
+
+/*文字大小*/
+.indextitle       {font-size: 2rem;}
+
+/*按鈕文字初始顏色*/
+#BInorA           {color: black;}
+#NallrB           {color: black;}
+
+/*容器配色*/
+.indexname        {background-color: black;}
+.indexname        {color: white;}
+

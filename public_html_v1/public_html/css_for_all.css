@@ -1,0 +1,153 @@
+/*測試用容器外誆顏色*/
+		/*上導覽列*/
+/*.all-nav          {border: 2px;border-style: solid;border-color: green;}
+.all-bodybox      {border: 6px;border-style: solid;border-color: red;}
+.all-logo         {border: 2px;border-style: solid;border-color: red;}
+.all-market-nav   {border: 2px;border-style: solid;border-color: yellow;}
+.all-search-nav   {border: 2px;border-style: solid;border-color: blue;}
+.all-member-nav   {border: 2px;border-style: solid;border-color: red;}
+.all-market       {border: 2px;border-style: solid;border-color: red;}
+.all-member       {border: 2px;border-style: solid;border-color: red;}
+.all-market-a     {border: 2px;border-style: solid;border-color: blue;}
+.all-member-a     {border: 2px;border-style: solid;border-color: blue;}*/
+
+		/*左導覽列*/
+/*.all-leftnav      {border: 6px;border-style: solid;border-color: purple;}
+.all-leftnav-in   {border: 6px;border-style: solid;border-color: red;}
+.all-leftnav-item {border: 6px;border-style: solid;border-color: blue;}
+.all-databox      {border: 6px;border-style: solid;border-color: green;}*/
+        /*數據區塊*/
+/*.all-databox-item {border: 6px;border-style: solid;border-color: blue;}
+.all-databox-INitem{border: 6px;border-style: solid;border-color: green;}
+.all-tinyLeftNav  {border: 6px;border-style: solid;border-color: red;}
+.all-tinyLeftNav-with2{border: 6px;border-style: solid;border-color: red;}
+.all-showDataBox  {border: 6px;border-style: solid;border-color: black;}
+.all-smallLeftNavL{border: 6px;border-style: solid;border-color: black;}
+.all-smallLeftNavR{border: 6px;border-style: solid;border-color: green;}
+.all-bigclass     {border: 6px;border-style: solid;border-color: red;}
+.DataFromClass    {border: 6px;border-style: solid;border-color: green;}*/
+
+/*容器外誆設計*/
+		/*上導覽列*/
+.all-search           {border: 2.8px;border-style: solid;border-color: black; border-radius: 1.5rem;}	
+
+/*長寬高*/
+html, body        {min-height: auto;}
+		/*上導覽列*/
+.all-nav          {height: 3.5rem;}
+.all-bodybox      {min-height: auto;}
+.all-logo img     {height: 4.5rem; width: auto;}
+.all-market-nav   {min-width: 13rem;}
+.all-search       {height: 75%;}
+.all-search i     {height: 0.1rem; width: 0.1rem;}
+.all-input        {height: 65%; width: 8rem;}
+.all-submitButton {height: 2rem; width: 2rem;}
+		/*左導覽列*/
+.all-leftnav-item {min-width: 6rem;}
+        	/*數據區塊*/
+.all-bigclass     {min-width: 40rem;}
+
+/*導覽列元素空間與排列*/
+		/*上導覽列*/
+.all-logo         {width: 15%; min-width: 13.5rem; margin-left: 2rem;}
+.all-market-nav   {width: 35%; }
+.all-search-nav   {width: 20%; min-width: 12.8rem; justify-content: center;}
+.all-member-nav   {width: 30%; min-width: 7rem;  margin-right: 2rem;}
+.all-market       {min-width: 13rem;justify-content: space-between;}
+.all-member       {min-width: 8rem;justify-content: space-between;}
+		/*左導覽列*/
+.all-leftnav      {width: 10%; min-width: 10.8rem;}
+.all-databox      {width: 90%;}
+        	/*數據區塊*/
+.all-smallLeftNavL, .all-smallLeftNavR{min-width: 6rem;}
+
+/*margin*/
+		/*上導覽列*/
+.all-nav          {margin-top: 1rem;}
+.all-bodybox      {margin-top: 1.5rem;}
+.all-market       {margin-left: auto; margin-right: 1rem;}
+.all-search i     {margin-left: -1.2rem;}
+.all-search       {padding-left: 1rem; padding-right: 1rem;}
+.all-member       {margin-right: auto; margin-left: 2rem;}
+		/*左導覽列*/
+.all-leftnav-in   {margin-left: 1rem; margin-right: 0.7rem; margin-top: 1.7rem; }
+.all-leftnav-item {margin-bottom: 1rem;}
+        	/*數據區塊*/
+.all-databox-item {margin-top: 1.7rem;}
+.all-bigname      {margin-bottom: 1rem;}
+
+/*display*/
+body              {display: block;}
+		/*上導覽列*/
+.all-nav          {display: flex;}
+.all-bodybox      {display: flex;}
+.all-logo         {display: flex;}
+.all-logo-a       {display: flex;}
+.all-market-nav   {display: flex;}
+.all-search-nav   {display: flex;}
+.all-member-nav   {display: flex;}
+.all-market       {display: flex;}
+.all-search       {display: flex;}
+.all-member       {display: flex;}
+		/*左導覽列*/
+.all-leftnav      {display: flex; flex-direction: column}
+.all-databox      {display: flex;}
+.all-leftnav-in   {display: block;}
+.all-leftnav-item {display: flex;}
+.all-BIa          {display: flex;}
+        	/*數據區塊*/
+.all-databox-INitem{display: flex;}
+.all-tinyLeftNav  {display: flex; flex-direction: column}
+.all-bigname      {display: flex;}
+.all-bigclass     {display: none;}
+.all-showDataBox  {display: flex; flex-direction: column}
+
+/*置中*/
+		/*上導覽列*/
+.all-logo-a       {align-items: center;}
+.all-market-nav   {align-items: center;}
+.all-search-nav   {align-items: center;}
+.all-member-nav   {align-items: center;}
+.all-search       {align-items: center;}
+		/*左導覽列*/
+.all-databox      {justify-content: center;}
+.all-leftnav-in   {justify-content: center;}
+.all-leftnav-item {justify-content: center;}
+        	/*數據區塊*/
+.all-bigname      {text-align: center;}
+.all-showDataBox  {align-items: center;}
+
+/*去除預設樣式*/
+		/*上導覽列*/
+.all-market-a     {background-color: white;}
+.all-submitButton, .all-input{border: 0; background-color: white;}
+		/*左導覽列*/
+
+/*字體設計*/
+		/*所有的*/
+body              {font-family: 'Noto Sans TC', sans-serif;}
+a                 {text-decoration: none; color: black;}
+.all-BIa          {color: #A1A1A1;}
+.all-bigname      {color: #A1A1A1;}
+		/*上導覽列*/
+.all-market-a, .all-member-a {font-size: 1.5rem;}
+		/*左導覽列*/
+.all-BIa          {font-size: 1.5rem;}
+        	/*數據區塊*/
+.all-bigname      {font-size: 1.3rem;}
+
+/*屬標*/
+a                 {cursor: pointer;}
+
+/*表格樣式*/
+table,td          {border: 1px solid #333;}
+thead,tfoot       {background-color: #333;color: #fff;}
+table             {width: 99%;}
+
+/*左導覽列的設計*/
+.slide {font-size: 20px;font-weight: 200;letter-spacing: 1px;padding: 3px 3px 3px;outline: 0;border: 1px solid black;cursor: pointer;position: relative;background-color: rgba(0, 0, 0, 0);}
+.slide i {opacity: 0;font-size: 13px;transition: 0.2s;position: absolute;right: 10px;top: 16px;transition: transform 1;}
+.slide div {transition: transform 0.8s;}
+.slide:hover div {transform: translateX(-6px);}
+.slide::after {content: "";background-color: #66f2d5;width: 100%;z-index: -1;position: absolute;height: 100%;top: 7px;left: 7px;}
+.slide:hover i {opacity: 1;transform: translateX(-6px);}

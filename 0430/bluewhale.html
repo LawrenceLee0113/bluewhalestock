@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><meta charset="utf-8"><!-- 中文編碼 -->
+	<title>藍鯨資訊</title>
+	<!-- 引用css -->
+	<link href="css_for_dapan.css" rel="stylesheet" /><!-- 大盤 -->
+	<link href="css_for_all.css" rel="stylesheet" /><!-- 全部 --><!-- 引用js  --><script src="leftnav.js"></script><!-- 左導覽列 --><script src="conectAndShowDaPanData.js"></script><!-- 匯入資料 --><!-- 引用google icon -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /><!-- 引用google 字體 -->
+	<style type="text/css">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap');
+	</style>
+	<!--jq and DBmethod-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="DBmethod.js"></script>
+	
+	<!--table data import-->
+	<!--css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!--//jq-->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    
+	<!-- RWD 偵測螢幕裝置是手機或電腦，載入對應CSS --><script type="text/javascript">
+if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+ 	// 手機或平板裝置
+	document.write("<link rel=\"stylesheet\" href=\"css_for_phone.css\" type=\"text/css\" media=\"screen\"/>"); 
+}
+else {
+	document.write("<link rel=\"stylesheet\" href=\"css_for_pcALL.css\" type=\"text/css\" media=\"screen\"/>"); 
+	// 電腦裝置 1080下  1366下  1680下  1920下  1920上
+	var screenWidth = window.screen.width;
+	// 迷你尺寸電腦 XS
+	if(screenWidth<=1080){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcXS.css\" type=\"text/css\" media=\"screen\"/>");
+	// 小尺寸電腦 S
+	}
+	if(screenWidth > 1080 && screenWidth <= 1366){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcS.css\" type=\"text/css\" media=\"screen\"/>");
+	// 中尺寸電腦 M
+	}
+	if(screenWidth > 1366 && screenWidth <= 1680){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcM.css\" type=\"text/css\" media=\"screen\"/>");
+	// 大尺寸電腦 L
+	}
+	if(screenWidth > 1680 && screenWidth <= 1920){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcL.css\" type=\"text/css\" media=\"screen\"/>");
+	// 特大尺寸電腦 XL
+	}
+	if(screenWidth > 1920){
+		document.write("<link rel=\"stylesheet\" href=\"css_for_pcXL.css\" type=\"text/css\" media=\"screen\"/>");
+	}
+}
+</script><script>
+// 傳送ID參數給JS需要(漲跌總攬)
+IDfallX='fallX';IDicicX='icicX';IDlighX='lighX';IDnetwX='netwX';IDeltsX='eltsX';IDfpcbX='fpcbX';IDcompX='compX';IDpoweX='poweX';IDinfoX='infoX';IDelpaX='elpaX';IDfinaX='finaX';IDbiolX='biolX';IDsporX='sporX';IDlifeX='lifeX';IDtextX='textX';IDfoodX='foodX';IDdepaX='depaX';IDhoapX='hoapX';IDautoX='autoX';IDequiX='equiX';IDmotoX='motoX';IDsteeX='steeX';IDcemeX='cemeX';IDarchX='archX';IDtradX='tradX';IDchemX='chemX';IDtranX='tranX';
+// 傳送ID參數給JS需要(營收總攬)
+IDfallRX='fallRX';IDicicRX='icicRX';IDlighRX='lighRX';IDnetwRX='netwRX';IDeltsRX='eltsRX';IDfpcbRX='fpcbRX';IDcompRX='compRX';IDpoweRX='poweRX';IDinfoRX='infoRX';IDelpaRX='elpaRX';IDfinaRX='finaRX';IDbiolRX='biolRX';IDsporRX='sporRX';IDlifeRX='lifeRX';IDtextRX='textRX';IDfoodRX='foodRX';IDdepaRX='depaRX';IDhoapRX='hoapRX';IDautoRX='autoRX';IDequiRX='equiRX';IDmotoRX='motoRX';IDsteeRX='steeRX';IDcemeRX='cemeRX';IDarchRX='archRX';IDtradRX='tradRX';IDchemRX='chemRX';IDtranRX='tranRX';
+// 傳送ID參數給JS需要(股利總攬)
+IDfallDX='fallDX';IDicicDX='icicDX';IDlighDX='lighDX';IDnetwDX='netwDX';IDeltsDX='eltsDX';IDfpcbDX='fpcbDX';IDcompDX='compDX';IDpoweDX='poweDX';IDinfoDX='infoDX';IDelpaDX='elpaDX';IDfinaDX='finaDX';IDbiolDX='biolDX';IDsporDX='sporDX';IDlifeDX='lifeDX';IDtextDX='textDX';IDfoodDX='foodDX';IDdepaDX='depaDX';IDhoapDX='hoapDX';IDautoDX='autoDX';IDequiDX='equiDX';IDmotoDX='motoDX';IDsteeDX='steeDX';IDcemeDX='cemeDX';IDarchDX='archDX';IDtradDX='tradDX';IDchemDX='chemDX';IDtranDX='tranDX';
+// 傳送ID參數給JS需要(本益總攬)
+IDfallPX='fallPX';IDicicPX='icicPX';IDlighPX='lighPX';IDnetwPX='netwPX';IDeltsPX='eltsPX';IDfpcbPX='fpcbPX';IDcompPX='compPX';IDpowePX='powePX';IDinfoPX='infoPX';IDelpaPX='elpaPX';IDfinaPX='finaPX';IDbiolPX='biolPX';IDsporPX='sporPX';IDlifePX='lifePX';IDtextPX='textPX';IDfoodPX='foodPX';IDdepaPX='depaPX';IDhoapPX='hoapPX';IDautoPX='autoPX';IDequiPX='equiPX';IDmotoPX='motoPX';IDsteePX='steePX';IDcemePX='cemePX';IDarchPX='archPX';IDtradPX='tradPX';IDchemPX='chemPX';IDtranPX='tranPX';
+
+//漲跌、營收、本益比率總攬的標題
+class_price_name = ["公司","代號","產品","收盤","漲跌幅","週漲跌","月漲跌","季漲跌","年漲跌"];
+class_revenue_name = ["公司","代號","產品","最新營收","年增率","季增率","近3月年增","近6月年增","近12月年增"];
+class_divident_name = ["公司","產品","股利","殖利率","5年平均股利","5年平均殖利率"];
+class_PER_name = ["公司","產品","年度本益比","近四季本益比","3年本益比中位數","5年本益比中位數"];
+
+//小產業分類
+// 半導體業
+class_icicX_item = ['矽智財','特殊應用IC','記憶體','記憶體控制IC','電源管理IC','驅動IC','網路通訊IC ','影音IC','影像感測IC','觸控IC','微控制器MCU','輸出入介面IC','二極體','功率電晶體','記憶體模組','晶圓','磊晶','網通晶圓','晶圓代工 ','封測材料','導線架','IC封測',];
+// 光電產業
+class_lighX_item = ['背光模組 ','面板材料','面板','觸控面板模組','顯示器','LED晶粒 ','LED封裝','LED燈具 ','光學鏡頭','光碟片','光碟片 ','攝影機 ',];
+// 網路通訊 
+class_netwX_item = ['光主動元件','光被動元件','無線通訊元件','GPS應用','網路通訊設備','衛星通訊','電信服務',];
+// 電子零件
+class_eltsX_item = ['被動元件材料','電阻 ','電容 ','電感 ','石英元件','連接器','連接線材','電源供應器','電子材料','散熱','3C機殼元件',];
+// 電路板業
+class_fpcbX_item = ['電路板材料','銅箔基板','IC載板','電路板','電路板加工',];
+// 電腦產業
+class_compX_item = ['嵌入式系統','金融終端機','強固型電腦','博弈機台','電腦及伺服器','主機板與顯卡','組裝與代工','電腦週邊3C',];
+// 電力能源 
+class_poweX_item = ['太陽能材料','太陽能電池模組','重電','不斷電系統','電池模組','電池材料',];
+// 資訊服務
+class_infoX_item = ['韌體設計','軟體開發','金融系統軟體','專案系統軟體','軟體代理','軟硬體整合','網站經營','網購平台',];
+//電子通路
+class_elpaX_item = ['3C通路','半導體通路','設備通路','電子材料通路','電子零件通路',];
+//金融保險
+class_finaX_item = ['金控','保險','銀行','證券期貨','泛金融',];
+//生物科技
+class_biolX_item = ['保健品','藥妝美容 ','連鎖藥局 ','生醫材質','測試儀','眼睛醫材','醫院用醫材','基因檢測','醫療服務','生物相似藥','疫苗','原料藥','新藥','學名藥',];
+//運動產業
+class_sporX_item = ['自行車製造 ','自行車零件','球具','健身','鞋子','鞋子材料',];
+//生活用品
+class_lifeX_item = ['旅行社','飯店 ','生理用品','清潔劑','影視','補教','精品','活動製作','娛樂場所','傢俱','衛浴','廚房用品','事務機','殯葬',];
+//紡織產業
+class_textX_item = ['纖維','紡紗','織布','成衣',];
+//食品產業
+class_foodX_item = ['食品原料','飼料','食用油品','肉品','其他食品','食品容器','餐飲','飲料',];
+//百貨量販
+class_depaX_item = ['貿易通路','服飾','超商','購物中心',];
+//家庭電器
+class_hoapX_item = ['家庭電器','影音產品','居家安控電子',];
+//汽車產業
+class_autoX_item = ['汽車電機系統','汽車系統','汽車塑件','汽車金屬件','汽車鈑金烤漆','其他汽車配件','車燈','車用電子','成車生產','汽車代理銷售',];
+//設備產業
+class_equiX_item = ['電子實驗室','半導體設備','PCB設備','光學檢測設備','自動化設備','量測儀','機械加工機','木工工具機','食品設備 ','其他設備',];
+//電機機械
+class_motoX_item = ['縫紉機','手工具機','水泵','傳動元件','冷凍空調','五金',];
+//鋼鐵產業
+class_steeX_item = ['鋼材','不鏽鋼','線材盤元','鋼鐵裁剪','鋼筋','鋼鐵製品','螺絲螺帽',];
+//水泥產業
+class_cemeX_item = ['水泥',];
+//建築工程
+class_archX_item = ['建設公司','綜合營建公司','營造工程','房地產代銷','裝潢與建材','能源工程','廠房工程','機電工程','資產租賃',]	;
+//傳統產業
+class_tradX_item = ['廢棄物處理','電線電纜','橡膠','玻璃','造紙','表面處理','印刷出版',];
+//化學石化
+class_chemX_item = ['化工原料','石化原料','合成樹脂','天然氣供應','油電','染料塗料','化學品','塑膠加工','塑膠原料','農業化學',];
+//交通運輸
+class_tranX_item = ['大眾交通','貨櫃航運','散裝航運','貨櫃集散與物流','陸運物流','承攬及報關','飛機維修製造','船維修製造',]
+</script>
+<script>
+	$(document).ready(function () {
+        // 搜尋股票
+		$("#submitButton").click(function (e) { 
+			var stock_value = $("#input").val().trim();
+			alert("Stock Code: " + stock_value)
+			var ouput_num = garrTW_LIST_STOCK_ID_NM.indexOf(stock_value)
+			if(ouput_num == -1) {
+				var output = stock_value
+			}else{
+
+				var output = garrTW_LIST_STOCK_ID[ouput_num]
+			}
+			alert("Output: " + output)
+		});
+        $("#input").keyup(function (e) { 
+
+            e.preventDefault();
+            var key_word = $("#key_input").val();
+            var search_column;
+            if(isNaN(key_word)) {
+                search_column = "公司簡稱";
+            }else{
+                search_column = "公司代號";
+
+            }
+
+            var get_data_base = new dbtool("search","bluewhal_Basedata","basedata",["公司代號","公司簡稱"]);
+            var content = get_data_base.get_tbody("`"+search_column+"` LIKE '"+key_word+"%' order by `搜尋次數` desc limit 10");
+            for(var i of content){
+			    $("#dlSTOCK_ID_NM").append("<option value='" + i[0] + " "+ i[1] + "'>")
+		    }
+        });
+	});
+</script>
+	
+</head>
+<body><!-- 搜尋股票資料列表 --><!-- 由javascript新增資料 -->
+<p><datalist id="dlSTOCK_ID_NM"></datalist> <!-- 上導覽列 --></p>
+
+<div class="all-nav">
+<div class="all-logo"><a class="all-logo-a" href="index.html"><img src="image/logo.png" /> </a></div>
+<!-- 上導覽列按鈕 -->
+
+<div class="all-market-nav">
+<div class="all-market"><a class="all-market-a" href="index.html">大盤</a> <a class="all-market-a" href="indexForindustry.html">產業</a> <a class="all-market-a" href="indexForcompany.html">個股</a></div>
+</div>
+<!-- 個股搜尋 -->
+
+<div class="all-search-nav">
+<div class="all-search"><input class="all-input" id="input" list="dlSTOCK_ID_NM" onblur="this.placeholder='搜尋股票或產業'" onfocus="this.placeholder ='' " placeholder="搜尋股票或產業" type="text" /> <!--搜尋列按鈕--><button class="all-submitButton" id="submitButton" type="submit"><i class="material-icons right">search</i></button></div>
+</div>
+<!-- 會員相關按鈕 -->
+
+<div class="all-member-nav">
+<div class="all-member"><a class="all-member-a"><h style="white-space: nowrap;">登入</h></a> <a class="all-member-a"><h style="white-space: nowrap;">購買</h></a></div>
+</div>
+</div>
+<!--上導覽列結束-->
+
+<div class="all-bodybox"><!--左導覽列-->
+<div class="all-leftnav">
+<div class="all-leftnav-in"><!-- 第一個 F() 取消最外側資料畫面隱藏 --><!-- 第二個 F() 取消最內側資料畫面隱藏 --><!-- 第三個 F() 將數據填上去 --><!-- 營收總覽 -->
+<div class="all-leftnav-item" id="box-item-revenue"><a class="all-BIa" id="BIrevA" onclick="openbox('all-databox-item','all-BIa','BIrevA','Dapanbox_revenue');     openbox('all-bigclass','all-bigname','fallRB','fallRX');  ">營收總覽<i class="material-icons">self_improvement</i></a></div>
+<!-- 漲跌總覽 -->
+
+<div class="all-leftnav-item" id="box-item-price"><a class="all-BIa" id="BIpriA" onclick="openbox('all-databox-item','all-BIa','BIpriA','Dapanbox_price');       openbox('all-bigclass','all-bigname','fallB','fallX');    ">漲跌總覽<i class="material-icons">candlestick_chart</i></a></div>
+<!-- 本益總覽 -->
+
+<div class="all-leftnav-item" id="box-item-PER"><a class="all-BIa" id="BIperA" onclick="openbox('all-databox-item','all-BIa','BIperA','Dapanbox_PER');         openbox('all-bigclass','all-bigname','icicPB','icicPX');  showClassData(class_icicX_item,class_PER_name,IDicicPX)     ">本益總覽<i class="material-icons">self_improvement</i></a></div>
+<!-- 股利總覽 -->
+
+<div class="all-leftnav-item" id="box-item-divident"><a class="all-BIa" id="BIdivA" onclick="openbox('all-databox-item','all-BIa','BIdivA','Dapanbox_divident');    openbox('all-bigclass','all-bigname','icicDB','icicDX');  showClassData(class_icicX_item,class_divident_name,IDicicDX)">股利總覽<i class="material-icons">self_improvement</i></a></div>
+<!-- 個股排行 -->
+
+<div class="all-leftnav-item" id="box-item-ranking"><a class="all-BIa" id="BIranA" onclick="openbox('all-databox-item','all-BIa','BIranA','Dapanbox_ranking');     openbox('all-bigclass','all-bigname','regrB','regrX');    ">個股排行<i class="material-icons">self_improvement</i></a></div>
+<!-- 大盤指數 -->
+
+<div class="all-leftnav-item" id="box-item-index"><a class="all-BIa" id="BIindA" onclick="openbox('all-databox-item','all-BIa','BIindA','Dapanbox_index')        ">大盤指數<i class="material-icons">candlestick_chart</i></a></div>
+<!-- 類股指數 -->
+
+<div class="all-leftnav-item" id="box-item-sort"><a class="all-BIa" id="BIsorA" onclick="openbox('all-databox-item','all-BIa','BIsorA','Dapanbox_sort');        openbox('all-bigclass','all-bigname','icicINB','icicINX');">類股指數<i class="material-icons">candlestick_chart</i></a></div>
+<!-- 權值個股 -->
+
+<div class="all-leftnav-item" id="box-item-heavy"><a class="all-BIa" id="BIheaA" onclick="openbox('all-databox-item','all-BIa','BIheaA','Dapanbox_heavy');       openbox('all-bigclass','all-bigname','b10B','b10X');      ">權值個股<i class="material-icons">candlestick_chart</i></a></div>
+<!-- 市場資訊 -->
+
+<div class="all-leftnav-item" id="box-item-information"><a class="all-BIa" id="BIinfA" onclick="openbox('all-databox-item','all-BIa','BIinfA','Dapanbox_information'); openbox('all-bigclass','all-bigname','applB','applX');    ">市場資訊<i class="material-icons">manage_search</i></a></div>
+<!-- 市況監控 -->
+
+<div class="all-leftnav-item" id="box-item-monitor"><a class="all-BIa" id="BImonA" onclick="openbox('all-databox-item','all-BIa','BImonA','Dapanbox_monitor');     openbox('all-bigclass','all-bigname','updoB','updoX');    ">市況監控<i class="material-icons">manage_search</i></a></div>
+<!-- 經濟指標 -->
+
+<div class="all-leftnav-item" id="box-item-economy"><a class="all-BIa" id="BIecoA" onclick="openbox('all-databox-item','all-BIa','BIecoA','Dapanbox_economy');     openbox('all-bigclass','all-bigname','gdpgB','gdpgX');    ">經濟指標<i class="material-icons">poll</i></a></div>
+</div>
+</div>
+<!--數據顯示區塊-->
+
+<div class="all-databox"><!--營收總覽-->
+<div class="all-databox-item" id="Dapanbox_revenue">
+<div class="all-databox-INitem"><!--營收選單-->
+<div class="all-tinyLeftNav-with2"><!-- 左排選單 -->
+<div class="all-smallLeftNavL"><!-- 總成績單 --><a class="all-bigname" id="fallRB" onclick="openbox('all-bigclass','all-bigname','fallRB','fallRX')                                                            ">總成績單<i class="material-icons">sports_score</i></a> <!-- 半導體業 --><a class="all-bigname" id="icicRB" onclick="openbox('all-bigclass','all-bigname','icicRB','icicRX') ; showClassData(class_icicX_item,class_revenue_name,IDicicRX)">半導體業<i class="material-icons">memory</i></a> <!-- 光電產業 --><a class="all-bigname" id="lighRB" onclick="openbox('all-bigclass','all-bigname','lighRB','lighRX') ; showClassData(class_lighX_item,class_revenue_name,IDlighRX)">光電產業<i class="material-icons">sports_score</i></a> <!-- 網路通訊 --><a class="all-bigname" id="netwRB" onclick="openbox('all-bigclass','all-bigname','netwRB','netwRX') ; showClassData(class_netwX_item,class_revenue_name,IDnetwRX)">網路通訊<i class="material-icons">sports_score</i></a> <!-- 電子零件 --><a class="all-bigname" id="eltsRB" onclick="openbox('all-bigclass','all-bigname','eltsRB','eltsRX') ; showClassData(class_eltsX_item,class_revenue_name,IDeltsRX)">電子零件<i class="material-icons">sports_score</i></a> <!-- 電路板業 --><a class="all-bigname" id="fpcbRB" onclick="openbox('all-bigclass','all-bigname','fpcbRB','fpcbRX') ; showClassData(class_fpcbX_item,class_revenue_name,IDfpcbRX)">電路板業<i class="material-icons">sports_score</i></a> <!-- 電腦產業 --><a class="all-bigname" id="compRB" onclick="openbox('all-bigclass','all-bigname','compRB','compRX') ; showClassData(class_compX_item,class_revenue_name,IDcompRX)">電腦產業<i class="material-icons">sports_score</i></a> <!-- 電力能源 --><a class="all-bigname" id="poweRB" onclick="openbox('all-bigclass','all-bigname','poweRB','poweRX') ; showClassData(class_poweX_item,class_revenue_name,IDpoweRX)">電力能源<i class="material-icons">sports_score</i></a> <!-- 資訊服務 --><a class="all-bigname" id="infoRB" onclick="openbox('all-bigclass','all-bigname','infoRB','infoRX') ; showClassData(class_infoX_item,class_revenue_name,IDinfoRX)">資訊服務<i class="material-icons">sports_score</i></a> <!-- 電子通路 --><a class="all-bigname" id="elpaRB" onclick="openbox('all-bigclass','all-bigname','elpaRB','elpaRX') ; showClassData(class_elpaX_item,class_revenue_name,IDelpaRX)">電子通路<i class="material-icons">sports_score</i></a> <!-- 金融保險 --><a class="all-bigname" id="finaRB" onclick="openbox('all-bigclass','all-bigname','finaRB','finaRX') ; showClassData(class_finaX_item,class_revenue_name,IDfinaRX)">金融保險<i class="material-icons">account_balance</i></a> <!-- 生物科技 --><a class="all-bigname" id="biolRB" onclick="openbox('all-bigclass','all-bigname','biolRB','biolRX') ; showClassData(class_biolX_item,class_revenue_name,IDbiolRX)">生物科技<i class="material-icons">coronavirus</i></a> <!-- 運動產業 --><a class="all-bigname" id="sporRB" onclick="openbox('all-bigclass','all-bigname','sporRB','sporRX') ; showClassData(class_sporX_item,class_revenue_name,IDsporRX)">運動產業<i class="material-icons">sports_tennis</i></a></div>
+<!-- 右排選單 -->
+
+<div class="all-smallLeftNavR"><!-- 生活用品 --><a class="all-bigname" id="lifeRB" onclick="openbox('all-bigclass','all-bigname','lifeRB','lifeRX') ; showClassData(class_lifeX_item,class_revenue_name,IDlifeRX)">生活用品<i class="material-icons">sports_tennis</i></a> <!-- 紡織產業 --><a class="all-bigname" id="textRB" onclick="openbox('all-bigclass','all-bigname','textRB','textRX') ; showClassData(class_textX_item,class_revenue_name,IDtextRX)">紡織產業<i class="material-icons">sports_tennis</i></a> <!-- 食品產業 --><a class="all-bigname" id="foodRB" onclick="openbox('all-bigclass','all-bigname','foodRB','foodRX') ; showClassData(class_foodX_item,class_revenue_name,IDfoodRX)">食品產業<i class="material-icons">sports_tennis</i></a> <!-- 百貨量販 --><a class="all-bigname" id="depaRB" onclick="openbox('all-bigclass','all-bigname','depaRB','depaRX') ; showClassData(class_depaX_item,class_revenue_name,IDdepaRX)">百貨量販<i class="material-icons">sports_tennis</i></a> <!-- 家庭電器 --><a class="all-bigname" id="hoapRB" onclick="openbox('all-bigclass','all-bigname','hoapRB','hoapRX') ; showClassData(class_hoapX_item,class_revenue_name,IDhoapRX)">家庭電器<i class="material-icons">sports_tennis</i></a> <!-- 汽車產業 --><a class="all-bigname" id="autoRB" onclick="openbox('all-bigclass','all-bigname','autoRB','autoRX') ; showClassData(class_autoX_item,class_revenue_name,IDautoRX)">汽車產業<i class="material-icons">precision_manufacturing</i></a> <!-- 設備產業 --><a class="all-bigname" id="equiRB" onclick="openbox('all-bigclass','all-bigname','equiRB','equiRX') ; showClassData(class_equiX_item,class_revenue_name,IDequiRX)">設備產業<i class="material-icons">precision_manufacturing</i></a> <!-- 電機機械 --><a class="all-bigname" id="motoRB" onclick="openbox('all-bigclass','all-bigname','motoRB','motoRX') ; showClassData(class_motoX_item,class_revenue_name,IDmotoRX)">電機機械<i class="material-icons">precision_manufacturing</i></a> <!-- 鋼鐵產業 --><a class="all-bigname" id="steeRB" onclick="openbox('all-bigclass','all-bigname','steeRB','steeRX') ; showClassData(class_steeX_item,class_revenue_name,IDsteeRX)">鋼鐵產業<i class="material-icons">precision_manufacturing</i></a> <!-- 水泥產業 --><a class="all-bigname" id="cemeRB" onclick="openbox('all-bigclass','all-bigname','cemeRB','cemeRX') ; showClassData(class_cemeX_item,class_revenue_name,IDcemeRX)">水泥產業<i class="material-icons">precision_manufacturing</i></a> <!-- 建築工程 --><a class="all-bigname" id="archRB" onclick="openbox('all-bigclass','all-bigname','archRB','archRX') ; showClassData(class_archX_item,class_revenue_name,IDarchRX)">建築工程<i class="material-icons">precision_manufacturing</i></a> <!-- 其他傳產 --><a class="all-bigname" id="tradRB" onclick="openbox('all-bigclass','all-bigname','tradRB','tradRX') ; showClassData(class_tradX_item,class_revenue_name,IDtradRX)">其他傳產<i class="material-icons">filter_list</i></a> <!-- 化學石化 --><a class="all-bigname" id="chemRB" onclick="openbox('all-bigclass','all-bigname','chemRB','chemRX') ; showClassData(class_chemX_item,class_revenue_name,IDchemRX)">化學石化<i class="material-icons">local_gas_station</i></a> <!-- 交通運輸 --><a class="all-bigname" id="tranRB" onclick="openbox('all-bigclass','all-bigname','tranRB','tranRX') ; showClassData(class_tranX_item,class_revenue_name,IDtranRX)">交通運輸<i class="material-icons">flight_takeoff</i></a></div>
+</div>
+<!--營收表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="fallRX">總成績單</div>
+
+<div class="all-bigclass" id="icicRX">1</div>
+
+<div class="all-bigclass" id="lighRX">2</div>
+
+<div class="all-bigclass" id="netwRX">3</div>
+
+<div class="all-bigclass" id="eltsRX">4</div>
+
+<div class="all-bigclass" id="fpcbRX">5</div>
+
+<div class="all-bigclass" id="compRX">6</div>
+
+<div class="all-bigclass" id="poweRX">7</div>
+
+<div class="all-bigclass" id="infoRX">8</div>
+
+<div class="all-bigclass" id="elpaRX">9</div>
+
+<div class="all-bigclass" id="finaRX">10</div>
+
+<div class="all-bigclass" id="biolRX">11</div>
+
+<div class="all-bigclass" id="sporRX">12</div>
+
+<div class="all-bigclass" id="lifeRX">13</div>
+
+<div class="all-bigclass" id="textRX">14</div>
+
+<div class="all-bigclass" id="foodRX">15</div>
+
+<div class="all-bigclass" id="depaRX">16</div>
+
+<div class="all-bigclass" id="hoapRX">17</div>
+
+<div class="all-bigclass" id="autoRX">18</div>
+
+<div class="all-bigclass" id="equiRX">19</div>
+
+<div class="all-bigclass" id="motoRX">20</div>
+
+<div class="all-bigclass" id="steeRX">21</div>
+
+<div class="all-bigclass" id="cemeRX">22</div>
+
+<div class="all-bigclass" id="archRX">23</div>
+
+<div class="all-bigclass" id="tradRX">24</div>
+
+<div class="all-bigclass" id="chemRX">25</div>
+
+<div class="all-bigclass" id="tranRX">26</div>
+</div>
+</div>
+</div>
+<!--漲跌總覽-->
+
+<div class="all-databox-item" id="Dapanbox_price">
+<div class="all-databox-INitem"><!--漲跌選單-->
+<div class="all-tinyLeftNav-with2"><!-- 左排選單 -->
+<div class="all-smallLeftNavL"><!-- 總成績單 --><a class="all-bigname" id="fallB" onclick="openbox('all-bigclass','all-bigname','fallB','fallX')                                                           ">總成績單<i class="material-icons">sports_score</i></a> <!-- 半導體業 --><a class="all-bigname" id="icicB" onclick="openbox('all-bigclass','all-bigname','icicB','icicX') ; showClassData(class_icicX_item,class_price_name,IDicicX)">半導體業<i class="material-icons">memory</i></a> <!-- 光電產業 --><a class="all-bigname" id="lighB" onclick="openbox('all-bigclass','all-bigname','lighB','lighX') ; showClassData(class_lighX_item,class_price_name,IDlighX)">光電產業<i class="material-icons">sports_score</i></a> <!-- 網路通訊 --><a class="all-bigname" id="netwB" onclick="openbox('all-bigclass','all-bigname','netwB','netwX') ; showClassData(class_netwX_item,class_price_name,IDnetwX)">網路通訊<i class="material-icons">sports_score</i></a> <!-- 電子零件 --><a class="all-bigname" id="eltsB" onclick="openbox('all-bigclass','all-bigname','eltsB','eltsX') ; showClassData(class_eltsX_item,class_price_name,IDeltsX)">電子零件<i class="material-icons">sports_score</i></a> <!-- 電路板業 --><a class="all-bigname" id="fpcbB" onclick="openbox('all-bigclass','all-bigname','fpcbB','fpcbX') ; showClassData(class_fpcbX_item,class_price_name,IDfpcbX)">電路板業<i class="material-icons">sports_score</i></a> <!-- 電腦產業 --><a class="all-bigname" id="compB" onclick="openbox('all-bigclass','all-bigname','compB','compX') ; showClassData(class_compX_item,class_price_name,IDcompX)">電腦產業<i class="material-icons">sports_score</i></a> <!-- 電力能源 --><a class="all-bigname" id="poweB" onclick="openbox('all-bigclass','all-bigname','poweB','poweX') ; showClassData(class_poweX_item,class_price_name,IDpoweX)">電力能源<i class="material-icons">sports_score</i></a> <!-- 資訊服務 --><a class="all-bigname" id="infoB" onclick="openbox('all-bigclass','all-bigname','infoB','infoX') ; showClassData(class_infoX_item,class_price_name,IDinfoX)">資訊服務<i class="material-icons">sports_score</i></a> <!-- 電子通路 --><a class="all-bigname" id="elpaB" onclick="openbox('all-bigclass','all-bigname','elpaB','elpaX') ; showClassData(class_elpaX_item,class_price_name,IDelpaX)">電子通路<i class="material-icons">sports_score</i></a> <!-- 金融保險 --><a class="all-bigname" id="finaB" onclick="openbox('all-bigclass','all-bigname','finaB','finaX') ; showClassData(class_finaX_item,class_price_name,IDfinaX)">金融保險<i class="material-icons">account_balance</i></a> <!-- 生物科技 --><a class="all-bigname" id="biolB" onclick="openbox('all-bigclass','all-bigname','biolB','biolX') ; showClassData(class_biolX_item,class_price_name,IDbiolX)">生物科技<i class="material-icons">coronavirus</i></a> <!-- 運動產業 --><a class="all-bigname" id="sporB" onclick="openbox('all-bigclass','all-bigname','sporB','sporX') ; showClassData(class_sporX_item,class_price_name,IDsporX)">運動產業<i class="material-icons">sports_tennis</i></a></div>
+<!-- 右排選單 -->
+
+<div class="all-smallLeftNavR"><!-- 生活用品 --><a class="all-bigname" id="lifeB" onclick="openbox('all-bigclass','all-bigname','lifeB','lifeX') ; showClassData(class_lifeX_item,class_price_name,IDlifeX)">生活用品<i class="material-icons">sports_tennis</i></a> <!-- 紡織產業 --><a class="all-bigname" id="textB" onclick="openbox('all-bigclass','all-bigname','textB','textX') ; showClassData(class_textX_item,class_price_name,IDtextX)">紡織產業<i class="material-icons">sports_tennis</i></a> <!-- 食品產業 --><a class="all-bigname" id="foodB" onclick="openbox('all-bigclass','all-bigname','foodB','foodX') ; showClassData(class_foodX_item,class_price_name,IDfoodX)">食品產業<i class="material-icons">sports_tennis</i></a> <!-- 百貨量販 --><a class="all-bigname" id="depaB" onclick="openbox('all-bigclass','all-bigname','depaB','depaX') ; showClassData(class_depaX_item,class_price_name,IDdepaX)">百貨量販<i class="material-icons">sports_tennis</i></a> <!-- 家庭電器 --><a class="all-bigname" id="hoapB" onclick="openbox('all-bigclass','all-bigname','hoapB','hoapX') ; showClassData(class_hoapX_item,class_price_name,IDhoapX)">家庭電器<i class="material-icons">sports_tennis</i></a> <!-- 汽車產業 --><a class="all-bigname" id="autoB" onclick="openbox('all-bigclass','all-bigname','autoB','autoX') ; showClassData(class_autoX_item,class_price_name,IDautoX)">汽車產業<i class="material-icons">precision_manufacturing</i></a> <!-- 設備產業 --><a class="all-bigname" id="equiB" onclick="openbox('all-bigclass','all-bigname','equiB','equiX') ; showClassData(class_equiX_item,class_price_name,IDequiX)">設備產業<i class="material-icons">precision_manufacturing</i></a> <!-- 電機機械 --><a class="all-bigname" id="motoB" onclick="openbox('all-bigclass','all-bigname','motoB','motoX') ; showClassData(class_motoX_item,class_price_name,IDmotoX)">電機機械<i class="material-icons">precision_manufacturing</i></a> <!-- 鋼鐵產業 --><a class="all-bigname" id="steeB" onclick="openbox('all-bigclass','all-bigname','steeB','steeX') ; showClassData(class_steeX_item,class_price_name,IDsteeX)">鋼鐵產業<i class="material-icons">precision_manufacturing</i></a> <!-- 水泥產業 --><a class="all-bigname" id="cemeB" onclick="openbox('all-bigclass','all-bigname','cemeB','cemeX') ; showClassData(class_cemeX_item,class_price_name,IDcemeX)">水泥產業<i class="material-icons">precision_manufacturing</i></a> <!-- 建築工程 --><a class="all-bigname" id="archB" onclick="openbox('all-bigclass','all-bigname','archB','archX') ; showClassData(class_archX_item,class_price_name,IDarchX)">建築工程<i class="material-icons">precision_manufacturing</i></a> <!-- 其他傳產 --><a class="all-bigname" id="tradB" onclick="openbox('all-bigclass','all-bigname','tradB','tradX') ; showClassData(class_tradX_item,class_price_name,IDtradX)">其他傳產<i class="material-icons">filter_list</i></a> <!-- 化學石化 --><a class="all-bigname" id="chemB" onclick="openbox('all-bigclass','all-bigname','chemB','chemX') ; showClassData(class_chemX_item,class_price_name,IDchemX)">化學石化<i class="material-icons">local_gas_station</i></a> <!-- 交通運輸 --><a class="all-bigname" id="tranB" onclick="openbox('all-bigclass','all-bigname','tranB','tranX') ; showClassData(class_tranX_item,class_price_name,IDtranX)">交通運輸<i class="material-icons">flight_takeoff</i></a></div>
+</div>
+<!--漲跌表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="fallX">總成績單</div>
+
+<div class="all-bigclass" id="icicX">1</div>
+
+<div class="all-bigclass" id="lighX">2</div>
+
+<div class="all-bigclass" id="netwX">3</div>
+
+<div class="all-bigclass" id="eltsX">4</div>
+
+<div class="all-bigclass" id="fpcbX">5</div>
+
+<div class="all-bigclass" id="compX">6</div>
+
+<div class="all-bigclass" id="poweX">7</div>
+
+<div class="all-bigclass" id="infoX">8</div>
+
+<div class="all-bigclass" id="elpaX">9</div>
+
+<div class="all-bigclass" id="finaX">10</div>
+
+<div class="all-bigclass" id="biolX">11</div>
+
+<div class="all-bigclass" id="sporX">12</div>
+
+<div class="all-bigclass" id="lifeX">13</div>
+
+<div class="all-bigclass" id="textX">14</div>
+
+<div class="all-bigclass" id="foodX">15</div>
+
+<div class="all-bigclass" id="depaX">16</div>
+
+<div class="all-bigclass" id="hoapX">17</div>
+
+<div class="all-bigclass" id="autoX">18</div>
+
+<div class="all-bigclass" id="equiX">19</div>
+
+<div class="all-bigclass" id="motoX">20</div>
+
+<div class="all-bigclass" id="steeX">21</div>
+
+<div class="all-bigclass" id="cemeX">22</div>
+
+<div class="all-bigclass" id="archX">23</div>
+
+<div class="all-bigclass" id="tradX">24</div>
+
+<div class="all-bigclass" id="chemX">25</div>
+
+<div class="all-bigclass" id="tranX">26</div>
+</div>
+</div>
+</div>
+<!--本益總覽-->
+
+<div class="all-databox-item" id="Dapanbox_PER">
+<div class="all-databox-INitem"><!--本益選單-->
+<div class="all-tinyLeftNav-with2"><!-- 左排選單 -->
+<div class="all-smallLeftNavL"><!-- 半導體業 --><a class="all-bigname" id="icicPB" onclick="openbox('all-bigclass','all-bigname','icicPB','icicPX') ; showClassData(class_icicX_item,class_PER_name,IDicicPX)">半導體業<i class="material-icons">memory</i></a> <!-- 光電產業 --><a class="all-bigname" id="lighPB" onclick="openbox('all-bigclass','all-bigname','lighPB','lighPX') ; showClassData(class_lighX_item,class_PER_name,IDlighPX)">光電產業<i class="material-icons">sports_score</i></a> <!-- 網路通訊 --><a class="all-bigname" id="netwPB" onclick="openbox('all-bigclass','all-bigname','netwPB','netwPX') ; showClassData(class_netwX_item,class_PER_name,IDnetwPX)">網路通訊<i class="material-icons">sports_score</i></a> <!-- 電子零件 --><a class="all-bigname" id="eltsPB" onclick="openbox('all-bigclass','all-bigname','eltsPB','eltsPX') ; showClassData(class_eltsX_item,class_PER_name,IDeltsPX)">電子零件<i class="material-icons">sports_score</i></a> <!-- 電路板業 --><a class="all-bigname" id="fpcbPB" onclick="openbox('all-bigclass','all-bigname','fpcbPB','fpcbPX') ; showClassData(class_fpcbX_item,class_PER_name,IDfpcbPX)">電路板業<i class="material-icons">sports_score</i></a> <!-- 電腦產業 --><a class="all-bigname" id="compPB" onclick="openbox('all-bigclass','all-bigname','compPB','compPX') ; showClassData(class_compX_item,class_PER_name,IDcompPX)">電腦產業<i class="material-icons">sports_score</i></a> <!-- 電力能源 --><a class="all-bigname" id="powePB" onclick="openbox('all-bigclass','all-bigname','powePB','powePX') ; showClassData(class_poweX_item,class_PER_name,IDpowePX)">電力能源<i class="material-icons">sports_score</i></a> <!-- 資訊服務 --><a class="all-bigname" id="infoPB" onclick="openbox('all-bigclass','all-bigname','infoPB','infoPX') ; showClassData(class_infoX_item,class_PER_name,IDinfoPX)">資訊服務<i class="material-icons">sports_score</i></a> <!-- 電子通路 --><a class="all-bigname" id="elpaPB" onclick="openbox('all-bigclass','all-bigname','elpaPB','elpaPX') ; showClassData(class_elpaX_item,class_PER_name,IDelpaPX)">電子通路<i class="material-icons">sports_score</i></a> <!-- 金融保險 --><a class="all-bigname" id="finaPB" onclick="openbox('all-bigclass','all-bigname','finaPB','finaPX') ; showClassData(class_finaX_item,class_PER_name,IDfinaPX)">金融保險<i class="material-icons">account_balance</i></a> <!-- 生物科技 --><a class="all-bigname" id="biolPB" onclick="openbox('all-bigclass','all-bigname','biolPB','biolPX') ; showClassData(class_biolX_item,class_PER_name,IDbiolPX)">生物科技<i class="material-icons">coronavirus</i></a> <!-- 運動產業 --><a class="all-bigname" id="sporPB" onclick="openbox('all-bigclass','all-bigname','sporPB','sporPX') ; showClassData(class_sporX_item,class_PER_name,IDsporPX)">運動產業<i class="material-icons">sports_tennis</i></a> <!-- 生活用品 --><a class="all-bigname" id="lifePB" onclick="openbox('all-bigclass','all-bigname','lifePB','lifePX') ; showClassData(class_lifeX_item,class_PER_name,IDlifePX)">生活用品<i class="material-icons">sports_tennis</i></a></div>
+<!-- 右排選單 -->
+
+<div class="all-smallLeftNavR"><!-- 紡織產業 --><a class="all-bigname" id="textPB" onclick="openbox('all-bigclass','all-bigname','textPB','textPX') ; showClassData(class_textX_item,class_PER_name,IDtextPX)">紡織產業<i class="material-icons">sports_tennis</i></a> <!-- 食品產業 --><a class="all-bigname" id="foodPB" onclick="openbox('all-bigclass','all-bigname','foodPB','foodPX') ; showClassData(class_foodX_item,class_PER_name,IDfoodPX)">食品產業<i class="material-icons">sports_tennis</i></a> <!-- 百貨量販 --><a class="all-bigname" id="depaPB" onclick="openbox('all-bigclass','all-bigname','depaPB','depaPX') ; showClassData(class_depaX_item,class_PER_name,IDdepaPX)">百貨量販<i class="material-icons">sports_tennis</i></a> <!-- 家庭電器 --><a class="all-bigname" id="hoapPB" onclick="openbox('all-bigclass','all-bigname','hoapPB','hoapPX') ; showClassData(class_hoapX_item,class_PER_name,IDhoapPX)">家庭電器<i class="material-icons">sports_tennis</i></a> <!-- 汽車產業 --><a class="all-bigname" id="autoPB" onclick="openbox('all-bigclass','all-bigname','autoPB','autoPX') ; showClassData(class_autoX_item,class_PER_name,IDautoPX)">汽車產業<i class="material-icons">precision_manufacturing</i></a> <!-- 設備產業 --><a class="all-bigname" id="equiPB" onclick="openbox('all-bigclass','all-bigname','equiPB','equiPX') ; showClassData(class_equiX_item,class_PER_name,IDequiPX)">設備產業<i class="material-icons">precision_manufacturing</i></a> <!-- 電機機械 --><a class="all-bigname" id="motoPB" onclick="openbox('all-bigclass','all-bigname','motoPB','motoPX') ; showClassData(class_motoX_item,class_PER_name,IDmotoPX)">電機機械<i class="material-icons">precision_manufacturing</i></a> <!-- 鋼鐵產業 --><a class="all-bigname" id="steePB" onclick="openbox('all-bigclass','all-bigname','steePB','steePX') ; showClassData(class_steeX_item,class_PER_name,IDsteePX)">鋼鐵產業<i class="material-icons">precision_manufacturing</i></a> <!-- 水泥產業 --><a class="all-bigname" id="cemePB" onclick="openbox('all-bigclass','all-bigname','cemePB','cemePX') ; showClassData(class_cemeX_item,class_PER_name,IDcemePX)">水泥產業<i class="material-icons">precision_manufacturing</i></a> <!-- 建築工程 --><a class="all-bigname" id="archPB" onclick="openbox('all-bigclass','all-bigname','archPB','archPX') ; showClassData(class_archX_item,class_PER_name,IDarchPX)">建築工程<i class="material-icons">precision_manufacturing</i></a> <!-- 其他傳產 --><a class="all-bigname" id="tradPB" onclick="openbox('all-bigclass','all-bigname','tradPB','tradPX') ; showClassData(class_tradX_item,class_PER_name,IDtradPX)">其他傳產<i class="material-icons">filter_list</i></a> <!-- 化學石化 --><a class="all-bigname" id="chemPB" onclick="openbox('all-bigclass','all-bigname','chemPB','chemPX') ; showClassData(class_chemX_item,class_PER_name,IDchemPX)">化學石化<i class="material-icons">local_gas_station</i></a> <!-- 交通運輸 --><a class="all-bigname" id="tranPB" onclick="openbox('all-bigclass','all-bigname','tranPB','tranPX') ; showClassData(class_tranX_item,class_PER_name,IDtranPX)">交通運輸<i class="material-icons">flight_takeoff</i></a></div>
+</div>
+<!--本益表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="icicPX">1</div>
+
+<div class="all-bigclass" id="lighPX">2</div>
+
+<div class="all-bigclass" id="netwPX">3</div>
+
+<div class="all-bigclass" id="eltsPX">4</div>
+
+<div class="all-bigclass" id="fpcbPX">5</div>
+
+<div class="all-bigclass" id="compPX">6</div>
+
+<div class="all-bigclass" id="powePX">7</div>
+
+<div class="all-bigclass" id="infoPX">8</div>
+
+<div class="all-bigclass" id="elpaPX">9</div>
+
+<div class="all-bigclass" id="finaPX">10</div>
+
+<div class="all-bigclass" id="biolPX">11</div>
+
+<div class="all-bigclass" id="sporPX">12</div>
+
+<div class="all-bigclass" id="lifePX">13</div>
+
+<div class="all-bigclass" id="textPX">14</div>
+
+<div class="all-bigclass" id="foodPX">15</div>
+
+<div class="all-bigclass" id="depaPX">16</div>
+
+<div class="all-bigclass" id="hoapPX">17</div>
+
+<div class="all-bigclass" id="autoPX">18</div>
+
+<div class="all-bigclass" id="equiPX">19</div>
+
+<div class="all-bigclass" id="motoPX">20</div>
+
+<div class="all-bigclass" id="steePX">21</div>
+
+<div class="all-bigclass" id="cemePX">22</div>
+
+<div class="all-bigclass" id="archPX">23</div>
+
+<div class="all-bigclass" id="tradPX">24</div>
+
+<div class="all-bigclass" id="chemPX">25</div>
+
+<div class="all-bigclass" id="tranPX">26</div>
+</div>
+</div>
+</div>
+<!--股利總攬-->
+
+<div class="all-databox-item" id="Dapanbox_divident">
+<div class="all-databox-INitem"><!--股利選單-->
+<div class="all-tinyLeftNav-with2"><!-- 左排選單 -->
+<div class="all-smallLeftNavL"><!-- 半導體業 --><a class="all-bigname" id="icicDB" onclick="openbox('all-bigclass','all-bigname','icicDB','icicDX') ; showClassData(class_icicX_item,class_divident_name,IDicicDX)">半導體業<i class="material-icons">memory</i></a> <!-- 光電產業 --><a class="all-bigname" id="lighDB" onclick="openbox('all-bigclass','all-bigname','lighDB','lighDX') ; showClassData(class_lighX_item,class_divident_name,IDlighDX)">光電產業<i class="material-icons">sports_score</i></a> <!-- 網路通訊 --><a class="all-bigname" id="netwDB" onclick="openbox('all-bigclass','all-bigname','netwDB','netwDX') ; showClassData(class_netwX_item,class_divident_name,IDnetwDX)">網路通訊<i class="material-icons">sports_score</i></a> <!-- 電子零件 --><a class="all-bigname" id="eltsDB" onclick="openbox('all-bigclass','all-bigname','eltsDB','eltsDX') ; showClassData(class_eltsX_item,class_divident_name,IDeltsDX)">電子零件<i class="material-icons">sports_score</i></a> <!-- 電路板業 --><a class="all-bigname" id="fpcbDB" onclick="openbox('all-bigclass','all-bigname','fpcbDB','fpcbDX') ; showClassData(class_fpcbX_item,class_divident_name,IDfpcbDX)">電路板業<i class="material-icons">sports_score</i></a> <!-- 電腦產業 --><a class="all-bigname" id="compDB" onclick="openbox('all-bigclass','all-bigname','compDB','compDX') ; showClassData(class_compX_item,class_divident_name,IDcompDX)">電腦產業<i class="material-icons">sports_score</i></a> <!-- 電力能源 --><a class="all-bigname" id="poweDB" onclick="openbox('all-bigclass','all-bigname','poweDB','poweDX') ; showClassData(class_poweX_item,class_divident_name,IDpoweDX)">電力能源<i class="material-icons">sports_score</i></a> <!-- 資訊服務 --><a class="all-bigname" id="infoDB" onclick="openbox('all-bigclass','all-bigname','infoDB','infoDX') ; showClassData(class_infoX_item,class_divident_name,IDinfoDX)">資訊服務<i class="material-icons">sports_score</i></a> <!-- 電子通路 --><a class="all-bigname" id="elpaDB" onclick="openbox('all-bigclass','all-bigname','elpaDB','elpaDX') ; showClassData(class_elpaX_item,class_divident_name,IDelpaDX)">電子通路<i class="material-icons">sports_score</i></a> <!-- 金融保險 --><a class="all-bigname" id="finaDB" onclick="openbox('all-bigclass','all-bigname','finaDB','finaDX') ; showClassData(class_finaX_item,class_divident_name,IDfinaDX)">金融保險<i class="material-icons">account_balance</i></a> <!-- 生物科技 --><a class="all-bigname" id="biolDB" onclick="openbox('all-bigclass','all-bigname','biolDB','biolDX') ; showClassData(class_biolX_item,class_divident_name,IDbiolDX)">生物科技<i class="material-icons">coronavirus</i></a> <!-- 運動產業 --><a class="all-bigname" id="sporDB" onclick="openbox('all-bigclass','all-bigname','sporDB','sporDX') ; showClassData(class_sporX_item,class_divident_name,IDsporDX)">運動產業<i class="material-icons">sports_tennis</i></a> <!-- 生活用品 --><a class="all-bigname" id="lifeDB" onclick="openbox('all-bigclass','all-bigname','lifeDB','lifeDX') ; showClassData(class_lifeX_item,class_divident_name,IDlifeDX)">生活用品<i class="material-icons">sports_tennis</i></a></div>
+<!-- 右排選單 -->
+
+<div class="all-smallLeftNavR"><!-- 紡織產業 --><a class="all-bigname" id="textDB" onclick="openbox('all-bigclass','all-bigname','textDB','textDX') ; showClassData(class_textX_item,class_divident_name,IDtextDX)">紡織產業<i class="material-icons">sports_tennis</i></a> <!-- 食品產業 --><a class="all-bigname" id="foodDB" onclick="openbox('all-bigclass','all-bigname','foodDB','foodDX') ; showClassData(class_foodX_item,class_divident_name,IDfoodDX)">食品產業<i class="material-icons">sports_tennis</i></a> <!-- 百貨量販 --><a class="all-bigname" id="depaDB" onclick="openbox('all-bigclass','all-bigname','depaDB','depaDX') ; showClassData(class_depaX_item,class_divident_name,IDdepaDX)">百貨量販<i class="material-icons">sports_tennis</i></a> <!-- 家庭電器 --><a class="all-bigname" id="hoapDB" onclick="openbox('all-bigclass','all-bigname','hoapDB','hoapDX') ; showClassData(class_hoapX_item,class_divident_name,IDhoapDX)">家庭電器<i class="material-icons">sports_tennis</i></a> <!-- 汽車產業 --><a class="all-bigname" id="autoDB" onclick="openbox('all-bigclass','all-bigname','autoDB','autoDX') ; showClassData(class_autoX_item,class_divident_name,IDautoDX)">汽車產業<i class="material-icons">precision_manufacturing</i></a> <!-- 設備產業 --><a class="all-bigname" id="equiDB" onclick="openbox('all-bigclass','all-bigname','equiDB','equiDX') ; showClassData(class_equiX_item,class_divident_name,IDequiDX)">設備產業<i class="material-icons">precision_manufacturing</i></a> <!-- 電機機械 --><a class="all-bigname" id="motoDB" onclick="openbox('all-bigclass','all-bigname','motoDB','motoDX') ; showClassData(class_motoX_item,class_divident_name,IDmotoDX)">電機機械<i class="material-icons">precision_manufacturing</i></a> <!-- 鋼鐵產業 --><a class="all-bigname" id="steeDB" onclick="openbox('all-bigclass','all-bigname','steeDB','steeDX') ; showClassData(class_steeX_item,class_divident_name,IDsteeDX)">鋼鐵產業<i class="material-icons">precision_manufacturing</i></a> <!-- 水泥產業 --><a class="all-bigname" id="cemeDB" onclick="openbox('all-bigclass','all-bigname','cemeDB','cemeDX') ; showClassData(class_cemeX_item,class_divident_name,IDcemeDX)">水泥產業<i class="material-icons">precision_manufacturing</i></a> <!-- 建築工程 --><a class="all-bigname" id="archDB" onclick="openbox('all-bigclass','all-bigname','archDB','archDX') ; showClassData(class_archX_item,class_divident_name,IDarchDX)">建築工程<i class="material-icons">precision_manufacturing</i></a> <!-- 其他傳產 --><a class="all-bigname" id="tradDB" onclick="openbox('all-bigclass','all-bigname','tradDB','tradDX') ; showClassData(class_tradX_item,class_divident_name,IDtradDX)">其他傳產<i class="material-icons">filter_list</i></a> <!-- 化學石化 --><a class="all-bigname" id="chemDB" onclick="openbox('all-bigclass','all-bigname','chemDB','chemDX') ; showClassData(class_chemX_item,class_divident_name,IDchemDX)">化學石化<i class="material-icons">local_gas_station</i></a> <!-- 交通運輸 --><a class="all-bigname" id="tranDB" onclick="openbox('all-bigclass','all-bigname','tranDB','tranDX') ; showClassData(class_tranX_item,class_divident_name,IDtranDX)">交通運輸<i class="material-icons">flight_takeoff</i></a></div>
+</div>
+<!--股利表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="icicDX">1</div>
+
+<div class="all-bigclass" id="lighDX">2</div>
+
+<div class="all-bigclass" id="netwDX">3</div>
+
+<div class="all-bigclass" id="eltsDX">4</div>
+
+<div class="all-bigclass" id="fpcbDX">5</div>
+
+<div class="all-bigclass" id="compDX">6</div>
+
+<div class="all-bigclass" id="poweDX">7</div>
+
+<div class="all-bigclass" id="infoDX">8</div>
+
+<div class="all-bigclass" id="elpaDX">9</div>
+
+<div class="all-bigclass" id="finaDX">10</div>
+
+<div class="all-bigclass" id="biolDX">11</div>
+
+<div class="all-bigclass" id="sporDX">12</div>
+
+<div class="all-bigclass" id="lifeDX">13</div>
+
+<div class="all-bigclass" id="textDX">14</div>
+
+<div class="all-bigclass" id="foodDX">15</div>
+
+<div class="all-bigclass" id="depaDX">16</div>
+
+<div class="all-bigclass" id="hoapDX">17</div>
+
+<div class="all-bigclass" id="autoDX">18</div>
+
+<div class="all-bigclass" id="equiDX">19</div>
+
+<div class="all-bigclass" id="motoDX">20</div>
+
+<div class="all-bigclass" id="steeDX">21</div>
+
+<div class="all-bigclass" id="cemeDX">22</div>
+
+<div class="all-bigclass" id="archDX">23</div>
+
+<div class="all-bigclass" id="tradDX">24</div>
+
+<div class="all-bigclass" id="chemDX">25</div>
+
+<div class="all-bigclass" id="tranDX">26</div>
+</div>
+</div>
+</div>
+<!--個股排行-->
+
+<div class="all-databox-item" id="Dapanbox_ranking">
+<div class="all-databox-INitem"><!--個股排行選單-->
+<div class="all-tinyLeftNav"><a class="all-bigname" id="regrB" onclick="openbox('all-bigclass','all-bigname','regrB','regrX')">營收成長</a> <a class="all-bigname" id="foreB" onclick="openbox('all-bigclass','all-bigname','foreB','foreX')">外資買賣</a> <a class="all-bigname" id="trusB" onclick="openbox('all-bigclass','all-bigname','trusB','trusX')">投信買賣</a> <a class="all-bigname" id="gainB" onclick="openbox('all-bigclass','all-bigname','gainB','gainX')">股價漲幅</a> <a class="all-bigname" id="voluB" onclick="openbox('all-bigclass','all-bigname','voluB','voluX')">成交量</a> <a class="all-bigname" id="yielB" onclick="openbox('all-bigclass','all-bigname','yielB','yielX')">殖利率</a></div>
+<!--個股排行表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="regrX">1</div>
+
+<div class="all-bigclass" id="foreX">2</div>
+
+<div class="all-bigclass" id="trusX">3</div>
+
+<div class="all-bigclass" id="gainX">4</div>
+
+<div class="all-bigclass" id="voluX">5</div>
+
+<div class="all-bigclass" id="yielX">6</div>
+</div>
+</div>
+</div>
+<!--大盤指數-->
+
+<div class="all-databox-item" id="Dapanbox_index"></div>
+<!--類股指數-->
+
+<div class="all-databox-item" id="Dapanbox_sort">
+<div class="all-databox-INitem"><!--指數選單-->
+<div class="all-tinyLeftNav-with2"><!-- 左排選單 -->
+<div class="all-smallLeftNavL"><!-- 半導體業 --><a class="all-bigname" id="icicINB" onclick="openbox('all-bigclass','all-bigname','icicINB','icicINX')">半導體業<i class="material-icons">memory</i></a> <!-- 光電產業 --><a class="all-bigname" id="lighINB" onclick="openbox('all-bigclass','all-bigname','lighINB','lighINX')">光電產業<i class="material-icons">sports_score</i></a> <!-- 網路通訊 --><a class="all-bigname" id="netwINB" onclick="openbox('all-bigclass','all-bigname','netwINB','netwINX')">網路通訊<i class="material-icons">sports_score</i></a> <!-- 電子零件 --><a class="all-bigname" id="eltsINB" onclick="openbox('all-bigclass','all-bigname','eltsINB','eltsINX')">電子零件<i class="material-icons">sports_score</i></a> <!-- 電路板業 --><a class="all-bigname" id="fpcbINB" onclick="openbox('all-bigclass','all-bigname','fpcbINB','fpcbINX')">電路板業<i class="material-icons">sports_score</i></a> <!-- 電腦產業 --><a class="all-bigname" id="compINB" onclick="openbox('all-bigclass','all-bigname','compINB','compINX')">電腦產業<i class="material-icons">sports_score</i></a> <!-- 電力能源 --><a class="all-bigname" id="poweINB" onclick="openbox('all-bigclass','all-bigname','poweINB','poweINX')">電力能源<i class="material-icons">sports_score</i></a> <!-- 資訊服務 --><a class="all-bigname" id="infoINB" onclick="openbox('all-bigclass','all-bigname','infoINB','infoINX')">資訊服務<i class="material-icons">sports_score</i></a> <!-- 電子通路 --><a class="all-bigname" id="elpaINB" onclick="openbox('all-bigclass','all-bigname','elpaINB','elpaINX')">電子通路<i class="material-icons">sports_score</i></a> <!-- 金融保險 --><a class="all-bigname" id="finaINB" onclick="openbox('all-bigclass','all-bigname','finaINB','finaINX')">金融保險<i class="material-icons">account_balance</i></a> <!-- 生物科技 --><a class="all-bigname" id="biolINB" onclick="openbox('all-bigclass','all-bigname','biolINB','biolINX')">生物科技<i class="material-icons">coronavirus</i></a> <!-- 運動產業 --><a class="all-bigname" id="sporINB" onclick="openbox('all-bigclass','all-bigname','sporINB','sporINX')">運動產業<i class="material-icons">sports_tennis</i></a> <!-- 生活用品 --><a class="all-bigname" id="lifeINB" onclick="openbox('all-bigclass','all-bigname','lifeINB','lifeINX')">生活用品<i class="material-icons">sports_tennis</i></a></div>
+<!-- 右排選單 -->
+
+<div class="all-smallLeftNavR"><!-- 紡織產業 --><a class="all-bigname" id="textINB" onclick="openbox('all-bigclass','all-bigname','textINB','textINX')">紡織產業<i class="material-icons">sports_tennis</i></a> <!-- 食品產業 --><a class="all-bigname" id="foodINB" onclick="openbox('all-bigclass','all-bigname','foodINB','foodINX')">食品產業<i class="material-icons">sports_tennis</i></a> <!-- 百貨量販 --><a class="all-bigname" id="depaINB" onclick="openbox('all-bigclass','all-bigname','depaINB','depaINX')">百貨量販<i class="material-icons">sports_tennis</i></a> <!-- 家庭電器 --><a class="all-bigname" id="hoapINB" onclick="openbox('all-bigclass','all-bigname','hoapINB','hoapINX')">家庭電器<i class="material-icons">sports_tennis</i></a> <!-- 汽車產業 --><a class="all-bigname" id="autoINB" onclick="openbox('all-bigclass','all-bigname','autoINB','autoINX')">汽車產業<i class="material-icons">precision_manufacturing</i></a> <!-- 設備產業 --><a class="all-bigname" id="equiINB" onclick="openbox('all-bigclass','all-bigname','equiINB','equiINX')">設備產業<i class="material-icons">precision_manufacturing</i></a> <!-- 電機機械 --><a class="all-bigname" id="motoINB" onclick="openbox('all-bigclass','all-bigname','motoINB','motoINX')">電機機械<i class="material-icons">precision_manufacturing</i></a> <!-- 鋼鐵產業 --><a class="all-bigname" id="steeINB" onclick="openbox('all-bigclass','all-bigname','steeINB','steeINX')">鋼鐵產業<i class="material-icons">precision_manufacturing</i></a> <!-- 水泥產業 --><a class="all-bigname" id="cemeINB" onclick="openbox('all-bigclass','all-bigname','cemeINB','cemeINX')">水泥產業<i class="material-icons">precision_manufacturing</i></a> <!-- 建築工程 --><a class="all-bigname" id="archINB" onclick="openbox('all-bigclass','all-bigname','archINB','archINX')">建築工程<i class="material-icons">precision_manufacturing</i></a> <!-- 其他傳產 --><a class="all-bigname" id="tradINB" onclick="openbox('all-bigclass','all-bigname','tradINB','tradINX')">其他傳產<i class="material-icons">filter_list</i></a> <!-- 化學石化 --><a class="all-bigname" id="chemINB" onclick="openbox('all-bigclass','all-bigname','chemINB','chemINX')">化學石化<i class="material-icons">local_gas_station</i></a> <!-- 交通運輸 --><a class="all-bigname" id="tranINB" onclick="openbox('all-bigclass','all-bigname','tranINB','tranINX')">交通運輸<i class="material-icons">flight_takeoff</i></a></div>
+</div>
+<!--指數表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="icicINX">1</div>
+
+<div class="all-bigclass" id="lighINX">2</div>
+
+<div class="all-bigclass" id="netwINX">3</div>
+
+<div class="all-bigclass" id="eltsINX">4</div>
+
+<div class="all-bigclass" id="fpcbINX">5</div>
+
+<div class="all-bigclass" id="compINX">6</div>
+
+<div class="all-bigclass" id="poweINX">7</div>
+
+<div class="all-bigclass" id="infoINX">8</div>
+
+<div class="all-bigclass" id="elpaINX">9</div>
+
+<div class="all-bigclass" id="finaINX">10</div>
+
+<div class="all-bigclass" id="biolINX">11</div>
+
+<div class="all-bigclass" id="sporINX">12</div>
+
+<div class="all-bigclass" id="lifeINX">13</div>
+
+<div class="all-bigclass" id="textINX">14</div>
+
+<div class="all-bigclass" id="foodINX">15</div>
+
+<div class="all-bigclass" id="depaINX">16</div>
+
+<div class="all-bigclass" id="hoapINX">17</div>
+
+<div class="all-bigclass" id="autoINX">18</div>
+
+<div class="all-bigclass" id="equiINX">19</div>
+
+<div class="all-bigclass" id="motoINX">20</div>
+
+<div class="all-bigclass" id="steeINX">21</div>
+
+<div class="all-bigclass" id="cemeINX">22</div>
+
+<div class="all-bigclass" id="archINX">23</div>
+
+<div class="all-bigclass" id="tradINX">24</div>
+
+<div class="all-bigclass" id="chemINX">25</div>
+
+<div class="all-bigclass" id="tranINX">26</div>
+</div>
+</div>
+</div>
+<!--權值個股-->
+
+<div class="all-databox-item" id="Dapanbox_heavy">
+<div class="all-databox-INitem"><!--權值個股選單-->
+<div class="all-tinyLeftNav"><a class="all-bigname" id="b10B" onclick="openbox('all-bigclass','all-bigname','b10B','b10X')">市值Top10</a> <a class="all-bigname" id="b20B" onclick="openbox('all-bigclass','all-bigname','b20B','b20X')">市值Top20</a> <a class="all-bigname" id="b30B" onclick="openbox('all-bigclass','all-bigname','b30B','b30X')">市值Top30</a> <a class="all-bigname" id="b40B" onclick="openbox('all-bigclass','all-bigname','b40B','b40X')">市值Top40</a> <a class="all-bigname" id="b50B" onclick="openbox('all-bigclass','all-bigname','b50B','b50X')">市值Top50</a></div>
+<!--權值個股表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="b10X">1</div>
+
+<div class="all-bigclass" id="b20X">2</div>
+
+<div class="all-bigclass" id="b30X">3</div>
+
+<div class="all-bigclass" id="b40X">4</div>
+
+<div class="all-bigclass" id="b50X">5</div>
+</div>
+</div>
+</div>
+<!--市場資訊-->
+
+<div class="all-databox-item" id="Dapanbox_information">
+<div class="all-databox-INitem"><!--資訊類別選單-->
+<div class="all-tinyLeftNav"><a class="all-bigname" id="applB" onclick="openbox('all-bigclass','all-bigname','applB','applX')">新股上市上櫃</a> <a class="all-bigname" id="direB" onclick="openbox('all-bigclass','all-bigname','direB','direX')">董監持股轉讓</a> <a class="all-bigname" id="fakeB" onclick="openbox('all-bigclass','all-bigname','fakeB','fakeX')">異常推介個股</a> <a class="all-bigname" id="noteB" onclick="openbox('all-bigclass','all-bigname','noteB','noteX')">注意處置股票</a> <a class="all-bigname" id="timeB" onclick="openbox('all-bigclass','all-bigname','timeB','timeX')">分盤交易股票</a> <a class="all-bigname" id="diviB" onclick="openbox('all-bigclass','all-bigname','diviB','diviX')">除權除息預告</a> <a class="all-bigname" id="impoB" onclick="openbox('all-bigclass','all-bigname','impoB','impoX')">今日重大訊息</a> <a class="all-bigname" id="surpB" onclick="openbox('all-bigclass','all-bigname','surpB','surpX')">公司自結盈餘</a></div>
+<!--資訊類別表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="applX"><!-- 新股上市類股 -->
+
+<h1 id="applX_sii_table_title" style="text-align:center"></h1>
+<table id="applX_sii_table">
+	<thead>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<script>
+    var sii_stock_db = new dbtool("001","bluewhal_NewStock","newstock_sii",["公司代號","公司名稱","申請日期","董事會通過日期","股票開始買賣日期","承銷商","承銷價","備註"]);
+    var tbody_array = sii_stock_db.get_tbody("DATE(`申請日期`) >= DATE(DATE_SUB(CURDATE(),INTERVAL 7 MONTH))")
+    sii_stock_db.set_thead("applX_sii_table",["公司代號","公司名稱","申請日期","通過日期","買賣日期","承銷商","承銷價","備註"])
+    sii_stock_db.set_table_title("applX_sii_table_title", "新股上市")
+    $('#applX_sii_table').DataTable({
+        "data":tbody_array,
+        "autoWidth": false
+    });
+</script>
+
+<h1 id="applX_otc_table_title" style="text-align:center"></h1>
+<table id="applX_otc_table">
+	<thead>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<script>
+    var otc_stock_db = new dbtool("001","bluewhal_NewStock","newstock_otc",["公司代號","公司名稱","申請日期","董事會通過日期","股票開始買賣日期","承銷商","承銷價","備註"]);
+    var tbody_array = otc_stock_db.get_tbody("DATE(`申請日期`) >= DATE(DATE_SUB(CURDATE(),INTERVAL 7 MONTH))")
+    otc_stock_db.set_thead("applX_otc_table",["公司代號","公司名稱","申請日期","通過日期","買賣日期","承銷商","承銷價","備註"])
+    otc_stock_db.set_table_title("applX_otc_table_title", "新股上櫃")
+    $('#applX_otc_table').DataTable({
+        "data":tbody_array,
+        "autoWidth": false
+    });
+</script>
+
+</div>
+
+<div class="all-bigclass" id="direX">1</div>
+
+<div class="all-bigclass" id="fakeX">2</div>
+
+<div class="all-bigclass" id="noteX">3</div>
+
+<div class="all-bigclass" id="timeX">4</div>
+
+<div class="all-bigclass" id="diviX">5</div>
+
+<div class="all-bigclass" id="impoX">6</div>
+
+<div class="all-bigclass" id="surpX">7</div>
+</div>
+</div>
+</div>
+<!--市況監控-->
+
+<div class="all-databox-item" id="Dapanbox_monitor">
+<div class="all-databox-INitem"><!--監控類別選單-->
+<div class="all-tinyLeftNav"><a class="all-bigname" id="updoB" onclick="openbox('all-bigclass','all-bigname','updoB','updoX')">漲跌家數</a> <a class="all-bigname" id="inreB" onclick="openbox('all-bigclass','all-bigname','inreB','inreX')">大盤獲利</a> <a class="all-bigname" id="inpeB" onclick="openbox('all-bigclass','all-bigname','inpeB','inpeX')">大盤評價</a> <a class="all-bigname" id="legrB" onclick="openbox('all-bigclass','all-bigname','legrB','legrX')">法人占比</a></div>
+<!--監控類別表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="updoX">1</div>
+
+<div class="all-bigclass" id="inreX">2</div>
+
+<div class="all-bigclass" id="inpeX">3</div>
+
+<div class="all-bigclass" id="legrX">4</div>
+</div>
+</div>
+</div>
+<!--經濟指標-->
+
+<div class="all-databox-item" id="Dapanbox_economy">
+<div class="all-databox-INitem"><!--經濟指標選單-->
+<div class="all-tinyLeftNav"><a class="all-bigname" id="gdpgB" onclick="openbox('all-bigclass','all-bigname','gdpgB','gdpgX')">經濟成長 <i class="material-icons">rocket_launch</i></a> <a class="all-bigname" id="PMIiB" onclick="openbox('all-bigclass','all-bigname','PMIiB','PMIiX')">採購經理人 <i class="material-icons">rocket_launch</i></a> <a class="all-bigname" id="wageB" onclick="openbox('all-bigclass','all-bigname','wageB','wageX')">國民所得 <i class="material-icons">savings</i></a> <a class="all-bigname" id="cpriB" onclick="openbox('all-bigclass','all-bigname','cpriB','cpriX')">物價指數 <i class="material-icons">shopping_cart</i></a> <a class="all-bigname" id="moneB" onclick="openbox('all-bigclass','all-bigname','moneB','moneX')">貨幣供給 <i class="material-icons">account_balance</i></a> <a class="all-bigname" id="exchB" onclick="openbox('all-bigclass','all-bigname','exchB','exchX')">國際匯率 <i class="material-icons">currency_exchange</i></a></div>
+<!--經濟指標表-->
+
+<div class="all-showDataBox">
+<div class="all-bigclass" id="gdpgX">1</div>
+
+<div class="all-bigclass" id="PMIiX">2</div>
+
+<div class="all-bigclass" id="wageX">2.5</div>
+
+<div class="all-bigclass" id="cpriX">3</div>
+
+<div class="all-bigclass" id="moneX">4</div>
+
+<div class="all-bigclass" id="exchX">5</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<!-- 首頁要展示的資料 --><script type="text/javascript">
+//大盤指數標題
+index_name = ['加權指數','上櫃指數','道瓊指數','標普500','那斯達克','費城半導體'];
+//大盤指數資訊
+index_price_name = ['開盤價','最高價','最低價','收盤價','漲跌','漲跌幅'];
+index_MA_name = ['5日線','10日線','20日線','60日線','240日線'];
+index_volatility_name = ['1日','1週','1月','1季','半年','1年'];
+//月份列表
+month = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+
+
+//大盤指數，股價圖表生成
+var html_for_Dapanbox_index = ''
+for (var i = 0; i < index_name.length; i++) { 
+    html_for_Dapanbox_index += '<div class="indexBox"><div class="indexname"><h class="indextitle">'+index_name[i]+'</h><h class="indexdetail">收盤開高低收</h></div><div class="indexplot"><div class="indexChart"></div><div class="indexData"><table><thead><tr><th>股價資料</th></tr></thead><tbody>';
+    //股價資料表格生成
+    for (var priceN = 0; priceN < index_price_name.length; priceN++) {
+    	html_for_Dapanbox_index += '<tr><td>'+index_price_name[priceN]+'</td></tr>'
+    }
+    html_for_Dapanbox_index += '</tbody></table><table><thead><tr><th>均線資料</th></tr></thead><tbody>';
+    //均線資料表格生成
+    for (var maN = 0; maN < index_MA_name.length; maN++) {
+    	html_for_Dapanbox_index += '<tr><td>'+index_MA_name[maN]+'</td></tr>'
+    }
+    html_for_Dapanbox_index += '</tbody></table><table><thead><tr><th>漲跌幅度</th></tr></thead><tbody>';
+    //漲跌幅度表格生成
+    for (var volN = 0; volN < index_volatility_name.length; volN++) {
+    	html_for_Dapanbox_index += '<tr><td>'+index_volatility_name[volN]+'</td></tr>'
+    }
+    html_for_Dapanbox_index += '</tbody></table></div></div>';
+
+    //只有台股要顯示總體月營收資訊
+    if(index_name[i]=='加權指數' || index_name[i]=='上櫃指數'){
+    	index_revenue_type = ['全台上市公司總營收','全台上櫃公司總營收'];
+    	html_for_Dapanbox_index += '<div class="indexRevenuebox"><div class="indexMRevenue"><table><thead><tr><th colspan="14">'+index_revenue_type[i]+'</th></tr></thead><tbody><tr><td align="center" width="16%" colspan="2">年度</td>'
+    	//放入1-12月
+    	for (var iforM = 0; iforM < month.length; iforM++){
+    		html_for_Dapanbox_index += '<td align="center" width="7%">'+month[iforM]+'</td>'
+    	}  	
+    	html_for_Dapanbox_index += '</tr></tbody> </table></div><div class="indexYRevenue"><table><thead><tr><th>上市公司</th></tr></thead><tbody><tr><td align="center">年度累積</td></tr></tbody></table></div></div>'
+    }
+    //紅色外框，國內外股市都需要
+    html_for_Dapanbox_index += '</div>';
+}
+document.getElementById( 'Dapanbox_index' ).innerHTML = html_for_Dapanbox_index
+</script></html>

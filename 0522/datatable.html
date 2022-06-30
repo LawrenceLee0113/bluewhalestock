@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--table data import-->
+    <!--css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!--jq-->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <title>Title here</title>
+</head>
+
+<body>
+    <table id="example" class="cell-border" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009-01-12</td>
+                <td>$86,000</td>
+            </tr>
+        </tbody>
+                <script>
+                    function table_style(table_id, func) {
+                        var row_obj = $("#" + table_id).children("tbody").children("tr")
+                        $.each(row_obj, function (row_i, row_v) {
+                            var column_obj = $(row_v).children("td")
+                            $.each(column_obj, function (col_i, col_v) {
+                                func(row_i, row_v, col_i, col_v)
+                            });
+                        });
+                    }
+                    function creat_sub_td(col_v, top_text, bottom_text,border_top = "1px solid #ddd") {
+                        var padding = $(col_v).css("padding").split(" ")
+                        if (border_top == "1px solid #ddd"){
+                            var border_top = $(col_v).css("border-top")
+                        }
+                        var top_p = "8px"
+                        var left_p = "10px"
+                        switch (padding.length) {
+                            case 1:
+                                top_p = padding[0]
+                                left_p = padding[0]
+                                break
+                            case 2:
+                                top_p = padding[0]
+                                left_p = padding[1]
+                                break
+                            case 4:
+                                top_p = padding[0]
+                                left_p = padding[1]
+                                break
+                        }
+                        var padding_setting = parseInt(top_p.substring(0, top_p.length - 2)) / 2 + "px " + left_p
+                        var inner_html =
+                            "<div class='container'     style='margin: 0;padding: 0;width: calc(100% - {lr_padding});height: 100%;display: flex;flex-direction: column;'>" +
+                            "<div class='top' style='height: 50%;width: 100%;padding: {padding_setting};border-bottom: {border_top};'>" +
+                            "{top_text}" +
+                            "</div>" +
+                            "<div class='bottom' style='height: 50%;width: 100%;padding: {padding_setting}'>" +
+                            "{bottom_text}" +
+                            "</div>" +
+                            "</div>"
+                        let lr_padding = parseInt(left_p.substring(0, top_p.length - 1)) * 2 + "px"
+                        inner_html = inner_html.replace(/{padding_setting}/g, padding_setting).replace("{top_text}", top_text)
+                        inner_html = inner_html.replace("{bottom_text}", bottom_text).replace("{lr_padding}",lr_padding).replace("{border_top}",border_top)
+                        return inner_html
+                    }
+                    $('#example').DataTable({});
+                    table_style("example", function (row_i, row_v, col_i, col_v) {
+                        if (row_i == 1 && col_i == 1) {
+                            
+                            var inner_html = creat_sub_td(col_v, "top test", "bohahaest")
+                            $(col_v).empty().css("padding", "0px")
+                            $(col_v).html(inner_html)
+                        }
+                    })
+                </script>
+
+</body>
+
+</html>

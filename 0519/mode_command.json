@@ -1,0 +1,27 @@
+{
+    "INprsB": {
+        "_comment": "漲跌總攬",
+        "all_command": "SELECT `basedata`.`公司簡稱`,`basedata`.`公司代號`,`basedata`.`主產業分類`,`rateofprice`.`週漲跌`,`rateofprice`.`月漲跌`,`rateofprice`.`季漲跌`,`rateofprice`.`年漲跌` FROM `basedata`,`rateofprice` WHERE `basedata`.`主產業分類` = 'data_name' AND `basedata`.`公司代號` = `rateofprice`.`公司代號`"
+    },
+    "INrevB": {
+        "_comment": "營收總攬"
+    },
+    "INrepB": {
+        "_comment": "營收股價"
+    },
+    "INinfB": {
+        "_comment": "產業指數"
+    },
+    "INpriB": {
+        "_comment": "個股股價"
+    },
+    "INallB": {
+        "_comment": "總量報表"
+    },
+    "INPERB": {
+        "_comment": "本益總攬"
+    },
+    "INdivB": {
+        "_comment": "股利總攬"
+    }
+}

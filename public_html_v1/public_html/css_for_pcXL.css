@@ -1,0 +1,6 @@
+/*長寬高*/
+	/*上導覽列*/
+.all-nav          {min-width: 118rem;}
+        /*數據區塊*/
+.all-bodybox      {min-width: 118rem ;}
+.all-databox-item {width: 85%; max-width: 1300px}
