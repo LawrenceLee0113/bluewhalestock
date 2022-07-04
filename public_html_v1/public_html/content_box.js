@@ -1,8 +1,8 @@
 //合併儲存格版本 有變色 置中
 var loaded_id = []
-async function simple_table_creator({id,database,table,column=[],condition,table_name,table_title,column_title=[]}){
+async function simple_table_creator({box_id,database,table,column=[],condition,table_name,table_title,column_title=[]}){
     var now_db = new dbtool("001", database, table, column);
-    now_db.creat_table(id,table_name)
+    now_db.creat_table(box_id,table_name)
     var tbody_array = await now_db.get_tbody(condition, false)
     now_db.set_thead(table_name+"_table", column_title)
     now_db.set_table_title(table_name+"_table_title", table_title)

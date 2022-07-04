@@ -1,0 +1,28 @@
+/*.header {border: 5px;border-style: solid;border-color: red;}
+.header-nav {border: 5px;border-style: solid;border-color: yellow;}
+.nav-item {border: 5px;border-style: solid;border-color: red;}
+.dropdown {border: 5px;border-style: solid;border-color: black;}*/
+
+/*.sidebar-nav .nav-content a:focus i {
+  background-color: #4154f1 ;}*/
+
+/*.col-lg-2 {border: 5px;border-style: solid;border-color: black;}
+.col-lg-10{border: 5px;border-style: solid;border-color: red;}
+.pagetitle{border: 5px;border-style: solid;border-color: yellow;}
+.test{border: 5px;border-style: solid;border-color: green;}
+.justify-content-around{border: 5px;border-style: solid;border-color: red;}
+.col-lg-12{border: 5px;border-style: solid;border-color: red;}
+.col-lg-3{border: 5px;border-style: solid;border-color: red;}*/
+
+/*.temp{border: 5px;border-style: solid;border-color: red;}*/
+/*.dataContainer{border: 5px;border-style: solid;border-color: red;}*/
+
+/*顏色*/
+.bgc-r {background-color: #E63946;}
+.bgc-w {background-color: #F1FAEE;}
+.bgc-g {background-color: #A8DADC;}
+.bgc-b {background-color: #457B9D;}
+.bgc-d {background-color: #1D3557;}
+
+
+.activeButton {color: black;}
