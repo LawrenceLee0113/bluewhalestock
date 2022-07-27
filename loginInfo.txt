@@ -8,6 +8,7 @@ run back:
 cd api_for_bluewhalestock
 
 sudo gunicorn -w 1 -b 0.0.0.0:5107 --certfile=server.crt --keyfile=server.key main:app --daemon --log-level error --access-logfile access.log --error-logfile error.log --pid pid.log --reload
+sudo gunicorn -w 1 -b 0.0.0.0:5107 main:app --daemon --log-level error --access-logfile access.log --error-logfile error.log --pid pid.log --reload
 
 //reload fail
 kill -HUP `cat pid.log`
